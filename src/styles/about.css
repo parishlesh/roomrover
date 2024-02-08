@@ -1,0 +1,21 @@
+
+.about-section {
+    background-color: #f9f9f9;
+    padding: 50px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .description, .mission-statement {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .mission-statement {
+    font-style: italic;
+  }
