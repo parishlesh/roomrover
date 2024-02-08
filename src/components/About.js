@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/about.css';
 
-function about() {
+function About() {
   return (
     <div>
        <div className="about-section">
@@ -16,4 +16,4 @@ function about() {
   )
 }
 
-export default about
+export default About
