@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  return (
+  return (<>
     <Router>
       <Navbar></Navbar>
       <Routes>
@@ -23,6 +23,7 @@ function App() {
       </Routes>
     
     </Router>
+  </>
   );
 }
 
