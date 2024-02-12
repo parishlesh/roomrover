@@ -1,17 +1,12 @@
 import React from 'react';
 import styles from '../styles/home.css';
-import pic1 from './photos/pic1.jpg'
-import pic2 from './photos/pic2.jpg'
-import pic3 from './photos/pic3.jpg'
-import pic4 from './photos/pic4.jpg'
-import pic5 from './photos/pic5.jpg'
 
 export default function Home() {
   return (
     <>
       <div className='cardContainer'>
         <div className="card">
-          <img src='pic1.jpg' alt="photo1"/>
+          
           <hr></hr>
           <div className='details'>
             <span><b>Rs. 4000</b></span>
@@ -20,7 +15,7 @@ export default function Home() {
           </div>
         </div>
         <div className="card">
-          <img src='pic1.jpg' alt="photo1"/>
+          
           <hr></hr>
           <div className='details'>
             <span><b>Rs. 4000</b></span>
@@ -29,7 +24,7 @@ export default function Home() {
           </div>
         </div>
         <div className="card">
-          <img src='pic1.jpg' alt="photo1"/>
+          
           <hr></hr>
           <div className='details'>
             <span><b>Rs. 4000</b></span>
@@ -38,7 +33,7 @@ export default function Home() {
           </div>
         </div>
         <div className="card">
-          <img src='pic1.jpg' alt="photo1"/>
+          
           <hr></hr>
           <div className='details'>
             <span><b>Rs. 4000</b></span>
@@ -47,7 +42,7 @@ export default function Home() {
           </div>
         </div>
         <div className="card">
-          <img src='pic1.jpg' alt="photo1"/>
+          
           <hr></hr>
           <div className='details'>
             <span><b>Rs. 4000</b></span>

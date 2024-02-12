@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../styles/about.css';
-import pic1 from 'src/components/photos/pic1.jpg';
 
 function About() {
   return (
@@ -16,7 +15,7 @@ function About() {
           <button>Join Us</button>
       </div>
       <div className="imageSection">
-        <img src="./src/components/photos/pic1.jpg" alt="" />
+        <img src="" alt="" />
         <img src="" alt="" />
         <img src="" alt="" />
       </div>
