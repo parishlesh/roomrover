@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <div className='cardContainer'>
-        <div className="card">
+        <div className="homeCard">
           
           <hr></hr>
           <div className='details'>
@@ -14,7 +14,7 @@ export default function Home() {
             <span>location data</span>
           </div>
         </div>
-        <div className="card">
+        <div className="homeCard">
           
           <hr></hr>
           <div className='details'>
@@ -23,7 +23,7 @@ export default function Home() {
             <span>location data</span>
           </div>
         </div>
-        <div className="card">
+        <div className="homeCard">
           
           <hr></hr>
           <div className='details'>
@@ -32,7 +32,7 @@ export default function Home() {
             <span>location data</span>
           </div>
         </div>
-        <div className="card">
+        <div className="homeCard">
           
           <hr></hr>
           <div className='details'>
@@ -41,7 +41,7 @@ export default function Home() {
             <span>location data</span>
           </div>
         </div>
-        <div className="card">
+        <div className="homeCard">
           
           <hr></hr>
           <div className='details'>

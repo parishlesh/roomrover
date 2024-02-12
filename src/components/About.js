@@ -1,53 +1,60 @@
 import React from 'react'
 import styles from '../styles/about.css';
+import pic1 from './15879.jpg'
+import pic2 from './33237.jpg'
+import pic3 from './34909.jpg'
 
 function About() {
   return (
     <div>
-      <div className="textSection">
-        <h3>About Us</h3>
-        <p>
-          "Unlock endless adventures with RoomRover - your ultimate guide to finding the perfect stay anywhere in the world!"
-        </p>
-        <p>
-          "At RoomRover, we're on a mission to revolutionize travel planning. Our platform offers personalized recommendations, insider tips, and a seamless booking experience. Join us and unlock unforgettable adventures worldwide."
+      <div className="aboutusContainer">
+        <div className="textSection">
+          <h3>About Us</h3>
+          <p>
+            "Unlock endless adventures with RoomRover - your ultimate guide to finding the perfect stay anywhere in the world!"
+          </p>
+          <p>
+            "At RoomRover, we're on a mission to revolutionize travel planning. Our platform offers personalized recommendations, insider tips, and a seamless booking experience. Join us and unlock unforgettable adventures worldwide."
           </p>
           <button>Join Us</button>
-      </div>
-      <div className="imageSection">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        </div>
+        <div className="imageSection">
+          <div className='imgBg shadow' style={{zIndex:'-1'}}>
+
+          <img src={pic2} alt="" className='img1' style={{height:'480px', width:'360px'}}/>
+          <img src={pic3} alt="" className='img2' style={{height:'480px', width:'360px'}}/>
+          </div>
+        </div>
       </div>
       <div className="feature">
-      <div className="imageSection2">
-        
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <div className="imageSection2">
 
-      </div>
-      <div className="featureText">
-        <h2>feature</h2>
-        <p>
-"Discover your perfect stay with RoomRover's personalized recommendations, insider tips, and hassle-free booking process."
-</p>
-<p>
-"RoomRover's standout feature lies in its ability to provide tailored accommodation recommendations based on your unique preferences and travel style. Our platform not only simplifies the booking process but also offers insider tips and local insights to enhance your travel experience. Say goodbye to endless scrolling and hello to personalized perfection with RoomRover."
-</p>
-<button>Learn more</button>
-      </div>
+          <img src="" alt="" />
+          <img src="" alt="" />
+
+        </div>
+        <div className="featureText">
+          <h2>feature</h2>
+          <p>
+            "Discover your perfect stay with RoomRover's personalized recommendations, insider tips, and hassle-free booking process."
+          </p>
+          <p>
+            "RoomRover's standout feature lies in its ability to provide tailored accommodation recommendations based on your unique preferences and travel style. Our platform not only simplifies the booking process but also offers insider tips and local insights to enhance your travel experience. Say goodbye to endless scrolling and hello to personalized perfection with RoomRover."
+          </p>
+          <button>Learn more</button>
+        </div>
 
       </div>
       <div className="ourBenefits">
         <h2>our Benefits</h2>
         <p>
-"Enhance your journey with RoomRover's exclusive benefits and personalized recommendations."
-</p>
-<div className="cards" style={ {   display: 'flex', alignItems: 'center', justifyContent: 'space-around',}}>
-      <div className="card">Personalized Recommendations</div>
-      <div className="card">Insider Insights</div>
-      <div className="card">Seamless Booking Experience</div>
-    </div>
+          "Enhance your journey with RoomRover's exclusive benefits and personalized recommendations."
+        </p>
+        <div className="cards" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', }}>
+          <div className="card">Personalized Recommendations</div>
+          <div className="card">Insider Insights</div>
+          <div className="card">Seamless Booking Experience</div>
+        </div>
       </div>
       <footer>
         <div className='footerContainer'>
@@ -123,9 +130,9 @@ function About() {
             </ul>
           </div>
         </div>
-          <div className='footerBottom'>
-            <p>Copyright &copy;2024; Designed by <span className='designer'>Parishlesh</span></p>
-          </div>
+        <div className='footerBottom'>
+          <p>Copyright &copy;2024; Designed by <span className='designer'>Parishlesh</span></p>
+        </div>
       </footer>
     </div>
   )
