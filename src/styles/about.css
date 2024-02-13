@@ -81,13 +81,30 @@ button{
     padding: 30px;
 }
 
+h2{
+  color: #22B286;
+  font-weight: 500;
+  font-size: 30px;
+}
 
+.imageSection2{
+  margin: 50px;
+  padding: 40px;
+}
 
-
-
-
-
-
+.feature .imgBg {
+  width: 320px;
+  height: 339px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 1px solid #e3e3e39f;
+ }
+ 
+.img3{
+  
+}
 
 
 

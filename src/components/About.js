@@ -26,16 +26,16 @@ function About() {
           </div>
         </div>
       </div>
-      
+
       <div className="feature">
         <div className="imageSection2">
           <div className='imgBg shadow'>
-            <img src={pic3} alt="" className='img3' style={{ height: '130px', width: '240px' }} />
+            <img src={pic3} alt="" className='img3' style={{ height: '339px', width: '270px' }} />
           </div>
         </div>
         <div className="featureText">
           <h2>feature</h2>
-          <p>
+          <p style={{fontSize:'20px'}}>
             "Discover your perfect stay with RoomRover's personalized recommendations, insider tips, and hassle-free booking process."
           </p>
           <p>
