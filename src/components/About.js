@@ -10,7 +10,7 @@ function About() {
       <div className="aboutusContainer">
         <div className="textSection">
           <h3>About Us</h3>
-          <p>
+          <p style={{ fontWeight: 'semiBold', fontSize: '30px' }}>
             "Unlock endless adventures with RoomRover - your ultimate guide to finding the perfect stay anywhere in the world!"
           </p>
           <p>
@@ -19,19 +19,19 @@ function About() {
           <button>Join Us</button>
         </div>
         <div className="imageSection">
-          <div className='imgBg shadow' style={{zIndex:'-1'}}>
+          <div className='imgBg shadow'>
 
-          <img src={pic2} alt="" className='img1' style={{height:'480px', width:'360px'}}/>
-          <img src={pic3} alt="" className='img2' style={{height:'480px', width:'360px'}}/>
+            <img src={pic1} alt="" className='img1' style={{ height: '130px', width: '240px' }} />
+            <img src={pic2} alt="" className='img2' style={{ height: '130px', width: '240px' }} />
           </div>
         </div>
       </div>
+      
       <div className="feature">
         <div className="imageSection2">
-
-          <img src="" alt="" />
-          <img src="" alt="" />
-
+          <div className='imgBg shadow'>
+            <img src={pic3} alt="" className='img3' style={{ height: '130px', width: '240px' }} />
+          </div>
         </div>
         <div className="featureText">
           <h2>feature</h2>
