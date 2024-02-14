@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -13,6 +13,14 @@ import {
 } from "react-router-dom";
 
 function App() {
+
+ 
+
+
+
+
+
+
   return (<>
     <Router>
       <Navbar></Navbar>

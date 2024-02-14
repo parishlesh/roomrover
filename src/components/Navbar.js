@@ -1,10 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Login from './Login';
 
 function Navbar() {
-  return (
-    <div>
 
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleLogin =()=>{
+    setIsOpen(!isOpen);
+  }
+
+
+
+
+  return (<>
+    <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">RoomRover</a>
@@ -24,11 +34,14 @@ function Navbar() {
               <input className="form-control me-2" type="search" placeholder="Search Location" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
+            <button className="btn btn-outline-success" type="submit" onClick={toggleLogin}>Login</button>
           </div>
         </div>
       </nav>
     </div>
+            {isOpen && <Login/>}
     
+  </>
   )
 }
 
