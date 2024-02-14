@@ -11,10 +11,10 @@ function About() {
         <div className="textSection">
           <h3>About Us</h3>
           <p style={{ fontWeight: 'semiBold', fontSize: '30px' }}>
-            "Unlock endless adventures with RoomRover - your ultimate guide to finding the perfect stay anywhere in the world!"
+            Unlock endless adventures with RoomRover - your ultimate guide to finding the perfect stay anywhere in the world!
           </p>
           <p>
-            "At RoomRover, we're on a mission to revolutionize travel planning. Our platform offers personalized recommendations, insider tips, and a seamless booking experience. Join us and unlock unforgettable adventures worldwide."
+            At RoomRover, we're on a mission to revolutionize travel planning. Our platform offers personalized recommendations, insider tips, and a seamless booking experience. Join us and unlock unforgettable adventures worldwide.
           </p>
           <button>Join Us</button>
         </div>
@@ -34,26 +34,26 @@ function About() {
           </div>
         </div>
         <div className="featureText">
-          <h2>feature</h2>
+          <h2>Feature</h2>
           <p style={{fontSize:'20px'}}>
-            "Discover your perfect stay with RoomRover's personalized recommendations, insider tips, and hassle-free booking process."
+            Discover your perfect stay with RoomRover's personalized recommendations, insider tips, and hassle-free booking process.
           </p>
           <p>
-            "RoomRover's standout feature lies in its ability to provide tailored accommodation recommendations based on your unique preferences and travel style. Our platform not only simplifies the booking process but also offers insider tips and local insights to enhance your travel experience. Say goodbye to endless scrolling and hello to personalized perfection with RoomRover."
+            RoomRover's standout feature lies in its ability to provide tailored accommodation recommendations based on your unique preferences and travel style. Our platform not only simplifies the booking process but also offers insider tips and local insights to enhance your travel experience. Say goodbye to endless scrolling and hello to personalized perfection with RoomRover.
           </p>
           <button>Learn more</button>
         </div>
 
       </div>
       <div className="ourBenefits">
-        <h2>our Benefits</h2>
-        <p>
+        <h2>Our Benefits</h2>
+        <p style={{fontSize:'22px'}}>
           "Enhance your journey with RoomRover's exclusive benefits and personalized recommendations."
         </p>
         <div className="cards" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', }}>
-          <div className="card">Personalized Recommendations</div>
-          <div className="card">Insider Insights</div>
-          <div className="card">Seamless Booking Experience</div>
+          <div className="card card1" style={{fontSize:'18px', fontWeight:'500' }}>Personalized Recommendations</div>
+          <div className="card card2"style={{fontSize:'18px', fontWeight:'500'}}>Insider Insights</div>
+          <div className="card card3"style={{fontSize:'18px', fontWeight:'500'}}>Seamless Booking Experience</div>
         </div>
       </div>
       <footer>
