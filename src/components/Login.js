@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/login.css';
+import '../styles/login.css';
 
 const Login = (props) => {
     const [isToggled, setIsToggled] = useState(false);
