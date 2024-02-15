@@ -7,13 +7,17 @@ const Login = (props) => {
     // const handleLoginClick = () => {
     //     setIsToggled(false);
     // };
+    const [isOpen, setIsOpen]=useState(true);
+
 
     const handleSwitchClick = () => {
         setIsToggled(true);
     };
 
     const handleCloseClick= () =>{
-        setIsToggled((prevIsToggled) => !prevIsToggled);
+        // setIsToggled((prevIsToggled) => !prevIsToggled);
+        setIsOpen(!isOpen);
+        // setIsOpen(false);
     }
 
     return (
@@ -37,7 +41,7 @@ const Login = (props) => {
             ) : (
                 <div className="form-container">
                     {/* Login form */}
-                    {/* <button className='closeButton' onClick={handleCloseClick}>X</button> */}
+                   
                     <p className="title">Welcome back</p>
                     <form className="form">
                         <input type="email" className="input" placeholder="Email" />
@@ -50,9 +54,10 @@ const Login = (props) => {
                     <p className="sign-up-label">
                         Don't have an account?<span className="sign-up-link" onClick={handleSwitchClick}>Sign up</span>
                     </p>
-{/* <button className='closeButton' onClick={handleCloseClick}>X</button> */}
+
                 </div>
             )};
+            {/* {isOpen && <Login onClick={handleCloseClick}/>} */}
         </div>
     );
 };
