@@ -4,21 +4,26 @@ import styles from '../styles/login.css';
 const Login = (props) => {
     const [isToggled, setIsToggled] = useState(false);
 
-    const handleLoginClick = () => {
-        setIsToggled(false);
-    };
+    // const handleLoginClick = () => {
+    //     setIsToggled(false);
+    // };
 
     const handleSwitchClick = () => {
         setIsToggled(true);
     };
 
+    const handleCloseClick= () =>{
+        setIsToggled((prevIsToggled) => !prevIsToggled);
+    }
+
     return (
         <div className='formModal' style={{ display: 'block' }}>
+            <button className='closeButton' onClick={handleCloseClick}>X</button>
+
             {isToggled ? (
                 <div className="form-container">
                     {/* Signup form */}
                     <p className="title">Create account</p>
-                    <p className="sub-title">Let's get started with your 30 days free trial</p>
                     <form className="form">
                         <input type="text" className="input" placeholder="Name" />
                         <input type="email" className="input" placeholder="Email" />
@@ -26,12 +31,13 @@ const Login = (props) => {
                         <button className="form-btn">Create account</button>
                     </form>
                     <p className="sign-up-label">
-                        Already have an account?<span className="sign-up-link" onClick={handleLoginClick}>Log in</span>
+                        Already have an account?<span className="sign-up-link" >Log in</span>
                     </p>
                 </div>
             ) : (
                 <div className="form-container">
                     {/* Login form */}
+                    {/* <button className='closeButton' onClick={handleCloseClick}>X</button> */}
                     <p className="title">Welcome back</p>
                     <form className="form">
                         <input type="email" className="input" placeholder="Email" />
@@ -44,8 +50,9 @@ const Login = (props) => {
                     <p className="sign-up-label">
                         Don't have an account?<span className="sign-up-link" onClick={handleSwitchClick}>Sign up</span>
                     </p>
+{/* <button className='closeButton' onClick={handleCloseClick}>X</button> */}
                 </div>
-            )}
+            )};
         </div>
     );
 };

@@ -21,6 +21,14 @@
     margin-left: 600px;
   }
   
+.closeButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 24px;
+    border-radius: 6px;
+}
+
   .title {
     text-align: center;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

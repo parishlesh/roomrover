@@ -14,13 +14,6 @@ import {
 
 function App() {
 
- 
-
-
-
-
-
-
   return (<>
     <Router>
       <Navbar></Navbar>
