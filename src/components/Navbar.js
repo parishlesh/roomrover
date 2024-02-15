@@ -10,9 +10,6 @@ function Navbar() {
     setIsOpen(!isOpen);
   }
 
-
-
-
   return (<>
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
