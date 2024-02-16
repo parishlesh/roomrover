@@ -11,12 +11,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Login from './components/Login';
 
 function App() {
 
   return (<>
     <Router>
       <Navbar></Navbar>
+      {/* <Login/> */}
       <Routes>
       <Route exect path='/' element={<Home/>}></Route>
       <Route path='/home' element={<Home/>} />

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const toggleLogin = () => {
-    setIsOpen(!isOpen);
+    setIsLoginOpen(!isLoginOpen);
   };
 
   return (
@@ -54,7 +54,7 @@ function Navbar() {
           </div>
         </nav>
       </div>
-      {isOpen && <Login />}
+      {isLoginOpen && <Login onClose={toggleLogin} />}
     </>
   );
 }

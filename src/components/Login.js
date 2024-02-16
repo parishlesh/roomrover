@@ -1,47 +1,23 @@
 import React, { useState } from 'react';
 import '../styles/login.css';
 
-const Login = (props) => {
-    const [isToggled, setIsToggled] = useState(false);
-
-    // const handleLoginClick = () => {
-    //     setIsToggled(false);
-    // };
-    const [isOpen, setIsOpen]=useState(true);
-
+const Login = ({ onClose }) => {
+    const [isLoginForm, setIsLoginForm] = useState(true); // State variable to track if login form is active
 
     const handleSwitchClick = () => {
-        setIsToggled(true);
+        setIsLoginForm(!isLoginForm); // Toggle between login and sign up form
     };
 
-    const handleCloseClick= () =>{
-        // setIsToggled((prevIsToggled) => !prevIsToggled);
-        setIsOpen(!isOpen);
-        // setIsOpen(false);
-    }
+    const handleCloseClick = () => {
+        onClose(); // Call onClose function received as a prop to close the login form
+    };
 
     return (
         <div className='formModal' style={{ display: 'block' }}>
             <button className='closeButton' onClick={handleCloseClick}>X</button>
 
-            {isToggled ? (
+            {isLoginForm ? ( // Display login form if isLoginForm is true
                 <div className="form-container">
-                    {/* Signup form */}
-                    <p className="title">Create account</p>
-                    <form className="form">
-                        <input type="text" className="input" placeholder="Name" />
-                        <input type="email" className="input" placeholder="Email" />
-                        <input type="password" className="input" placeholder="Password" />
-                        <button className="form-btn">Create account</button>
-                    </form>
-                    <p className="sign-up-label">
-                        Already have an account?<span className="sign-up-link" >Log in</span>
-                    </p>
-                </div>
-            ) : (
-                <div className="form-container">
-                    {/* Login form */}
-                   
                     <p className="title">Welcome back</p>
                     <form className="form">
                         <input type="email" className="input" placeholder="Email" />
@@ -54,10 +30,21 @@ const Login = (props) => {
                     <p className="sign-up-label">
                         Don't have an account?<span className="sign-up-link" onClick={handleSwitchClick}>Sign up</span>
                     </p>
-
                 </div>
-            )};
-            {/* {isOpen && <Login onClick={handleCloseClick}/>} */}
+            ) : (
+                <div className="form-container">
+                    <p className="title">Create account</p>
+                    <form className="form">
+                        <input type="text" className="input" placeholder="Name" />
+                        <input type="email" className="input" placeholder="Email" />
+                        <input type="password" className="input" placeholder="Password" />
+                        <button className="form-btn">Create account</button>
+                    </form>
+                    <p className="sign-up-label">
+                        Already have an account?<span className="sign-up-link" onClick={handleSwitchClick}>Log in</span>
+                    </p>
+                </div>
+            )}
         </div>
     );
 };
