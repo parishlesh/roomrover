@@ -1,56 +1,17 @@
 import React from 'react';
 import styles from '../styles/home.css';
+import '../styles/footer.css'
 
 export default function Home() {
   return (
     <>
-      <div className='cardContainer'>
-        <div className="homeCard">
-          
-          <hr></hr>
-          <div className='details'>
-            <span><b>Rs. 4000</b></span>
-            <span>data</span>
-            <span>location data</span>
-          </div>
-        </div>
-        <div className="homeCard">
-          
-          <hr></hr>
-          <div className='details'>
-            <span><b>Rs. 4000</b></span>
-            <span>data</span>
-            <span>location data</span>
-          </div>
-        </div>
-        <div className="homeCard">
-          
-          <hr></hr>
-          <div className='details'>
-            <span><b>Rs. 4000</b></span>
-            <span>data</span>
-            <span>location data</span>
-          </div>
-        </div>
-        <div className="homeCard">
-          
-          <hr></hr>
-          <div className='details'>
-            <span><b>Rs. 4000</b></span>
-            <span>data</span>
-            <span>location data</span>
-          </div>
-        </div>
-        <div className="homeCard">
-          
-          <hr></hr>
-          <div className='details'>
-            <span><b>Rs. 4000</b></span>
-            <span>data</span>
-            <span>location data</span>
-          </div>
-        </div>
+    <div className="searchContainer">
+      <div className="searchBox">
+        <input type="text" className="searchInput" placeholder='Enter Location'/>
+        <button className="searchButton">Search</button>
       </div>
+    </div>
+      <div className='footerParent'>
       <footer>
         <div className='footerContainer'>
           <div className='socialIcons'>
@@ -129,6 +90,7 @@ export default function Home() {
             <p>Copyright &copy;2024; Designed by <span className='designer'>Parishlesh</span></p>
           </div>
       </footer>
+    </div>
     </>
   );
 }

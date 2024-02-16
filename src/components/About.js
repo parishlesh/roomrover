@@ -1,8 +1,10 @@
 import React from 'react'
-import styles from '../styles/about.css';
+import '../styles/about.css';
 import pic1 from './15879.jpg'
 import pic2 from './33237.jpg'
 import pic3 from './34909.jpg'
+// import Footer from '../components/Footer';
+import '../styles/footer.css';
 
 function About() {
   return (
@@ -56,6 +58,8 @@ function About() {
           <div className="card card3"style={{fontSize:'18px', fontWeight:'500'}}>Seamless Booking Experience</div>
         </div>
       </div>
+      {/* <Footer/> */}
+      <div className='footerParent'>
       <footer>
         <div className='footerContainer'>
           <div className='socialIcons'>
@@ -130,10 +134,11 @@ function About() {
             </ul>
           </div>
         </div>
-        <div className='footerBottom'>
-          <p>Copyright &copy;2024; Designed by <span className='designer'>Parishlesh</span></p>
-        </div>
+          <div className='footerBottom'>
+            <p>Copyright &copy;2024; Designed by <span className='designer'>Parishlesh</span></p>
+          </div>
       </footer>
+    </div>
     </div>
   )
 }
