@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/home.css';
 import '../styles/footer.css'
+import bgpic from './photo/background-home.jpg'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <input type="text" className="searchInput" placeholder='Enter Location'/>
         <button className="searchButton">Search</button>
       </div>
+      <div className='footerParent' style={{ backgroundImage: 'url("{bgpic}")', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
     </div>
       <div className='footerParent'>
       <footer>
@@ -82,7 +84,6 @@ export default function Home() {
               <li><a href='#'>Home</a></li>
               <li><a href='#'>About</a></li>
               <li><a href='#'>Contact Us</a></li>
-              {/* <li><a href=''>Home</a></li> */}
             </ul>
           </div>
         </div>

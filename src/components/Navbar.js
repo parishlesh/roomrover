@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <>
       <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-success p-2 text-dark bg-opacity-10">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               RoomRover
@@ -41,12 +41,6 @@ function Navbar() {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search Location" aria-label="Search" />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
               <button className="btn btn-outline-success" type="submit" onClick={toggleLogin}>
                 Login
               </button>

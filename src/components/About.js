@@ -5,8 +5,17 @@ import pic2 from './33237.jpg'
 import pic3 from './34909.jpg'
 // import Footer from '../components/Footer';
 import '../styles/footer.css';
+import { useState } from 'react';
+import Login from './Login';
 
 function About() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const toggleLogin = () => {
+    setIsLoginOpen(!isLoginOpen);
+  }
+
+
   return (
     <div>
       <div className="aboutusContainer">
@@ -18,7 +27,9 @@ function About() {
           <p>
             At RoomRover, we're on a mission to revolutionize travel planning. Our platform offers personalized recommendations, insider tips, and a seamless booking experience. Join us and unlock unforgettable adventures worldwide.
           </p>
-          <button>Join Us</button>
+          <button onClick={toggleLogin}>Join Us</button>
+
+          {isLoginOpen && <Login onClose={toggleLogin} />}
         </div>
         <div className="imageSection">
           <div className='imgBg shadow'>
