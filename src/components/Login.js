@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import '../styles/login.css';
 
 const Login = ({ onClose }) => {
-    const [isLoginForm, setIsLoginForm] = useState(true); // State variable to track if login form is active
+    const [isLoginForm, setIsLoginForm] = useState(true);
 
     const handleSwitchClick = () => {
-        setIsLoginForm(!isLoginForm); // Toggle between login and sign up form
+        setIsLoginForm(!isLoginForm);
     };
 
     const handleCloseClick = () => {
-        onClose(); // Call onClose function received as a prop to close the login form
+        onClose();
     };
 
     return (
         <div className='formModal' style={{ display: 'block' }}>
             <button className='closeButton' onClick={handleCloseClick}>X</button>
 
-            {isLoginForm ? ( // Display login form if isLoginForm is true
+            {isLoginForm ? ( 
                 <div className="form-container">
                     <p className="title">Welcome back</p>
                     <form className="form">
