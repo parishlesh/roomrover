@@ -1,9 +1,8 @@
 import React from 'react'
 import '../styles/about.css';
-import pic1 from './15879.jpg'
-import pic2 from './33237.jpg'
-import pic3 from './34909.jpg'
-// import Footer from '../components/Footer';
+import pic1 from './img1.jpg'
+import pic2 from './img2.jpg'
+import pic3 from './img3.jpg'
 import '../styles/footer.css';
 import { useState } from 'react';
 import Login from './Login';
@@ -39,7 +38,7 @@ function About() {
           </div>
         </div>
       </div>
-
+      <hr />
       <div className="feature">
         <div className="imageSection2">
           <div className='imgBg shadow'>
@@ -56,8 +55,8 @@ function About() {
           </p>
           <button>Learn more</button>
         </div>
-
       </div>
+        <hr /> 
       <div className="ourBenefits">
         <h2>Our Benefits</h2>
         <p style={{fontSize:'22px'}}>
