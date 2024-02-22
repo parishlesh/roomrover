@@ -6,6 +6,8 @@ import pic3 from './img3.jpg'
 import '../styles/footer.css';
 import { useState } from 'react';
 import Login from './Login';
+import { Link } from 'react-router-dom';
+
 
 function About() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -136,11 +138,19 @@ function About() {
             </a>
           </div>
           <div className='footerNav'>
-            <ul>
-              <li><a href='#'>Home</a></li>
-              <li><a href='#'>About</a></li>
-              <li><a href='#'>Contact Us</a></li>
-            </ul>
+          <ul>
+              <li>
+                  <Link to="/home">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/about'>About</Link>
+                  </li>
+                <li>
+                  <Link to='/contact us'>Contact Us</Link>
+                  </li>
+              </ul>
           </div>
         </div>
           <div className='footerBottom'>

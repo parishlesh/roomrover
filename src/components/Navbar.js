@@ -14,9 +14,9 @@ function Navbar() {
       <div>
         <nav className="navbar navbar-expand-lg bg-success p-2 text-dark bg-opacity-10">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="/home">
               RoomRover
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"

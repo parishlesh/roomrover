@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '../styles/home.css';
+import '../styles/home.css';
 import '../styles/footer.css';
 import bgpic from './photo/background-home.jpg';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -83,9 +84,17 @@ export default function Home() {
             </div>
             <div className='footerNav'>
               <ul>
-                <li><a href='#'>Home</a></li>
-                <li><a href='#'>About</a></li>
-                <li><a href='#'>Contact Us</a></li>
+              <li>
+                  <Link to="/home">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/about'>About</Link>
+                  </li>
+                <li>
+                  <Link to='/contactUs'>Contact Us</Link>
+                  </li>
               </ul>
             </div>
           </div>
