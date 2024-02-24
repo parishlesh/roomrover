@@ -17,7 +17,7 @@ export default function ContactUs() {
         <div className="contactUsHeading">
             <h3>Contact Us</h3>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi incidunt esse fugit porro numquam sint deleniti atque deserunt eligendi delectus? Aperiam doloremque, eligendi velit magnam pariatur deleniti quibusdam architecto corporis?
+            Don't hesitate to reach out. We're here to help.
             </p>
         </div>
         <div className="ContactUsContainer">
