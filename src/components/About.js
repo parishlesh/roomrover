@@ -148,7 +148,7 @@ function About() {
                   <Link to='/about'>About</Link>
                   </li>
                 <li>
-                  <Link to='/contact us'>Contact Us</Link>
+                  <Link to='/contactUs'>Contact Us</Link>
                   </li>
               </ul>
           </div>

@@ -1,3 +1,7 @@
+body{
+    background: #f7fffbc2;
+}
+
 .contactUsSection {
     display: flex;
     justify-content: center;
@@ -26,15 +30,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    /* padding: 20px;
-    max-width: 70%;
-    width: 500px;
-    max-height: 70%;
-    width: 600px; */
+
   }
   
   .contactUsHeading {
     text-align: left;
+    padding: 20px;
   }
   
   .ContactUsContainer {
@@ -63,20 +64,29 @@
     width: 100%;
   }
   
-  /* button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  } */
+  form button{
+    background: #22B286;
+    border-radius: 25px;
+    border: #22b286;
+    font-size: larger;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    padding: 6px 12px;
+    margin: 6px;
+    transition: background ease 3ms;
+  }
+  
+  button:active{
+    background-color: #1A906B;
+  }
   
   
   .contactUsHeading h3 {
-    font-size: 1.5rem; /* Adjust the font size */
+    font-size: 1.5rem; 
   }
   
   .contactUsHeading p {
-    font-size: 0.9rem; /* Adjust the font size */
+    font-size: 0.9rem; 
   }
