@@ -40,6 +40,11 @@ function Navbar() {
                     About
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/contactUs">
+                    Contact Us
+                  </Link>
+                </li>
               </ul>
               <button className="btn btn-outline-success" type="submit" onClick={toggleLogin}>
                 Login
