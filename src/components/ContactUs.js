@@ -10,17 +10,17 @@ export default function ContactUs() {
     <div>
       <div className="contactUsSection">
 
-      <div className="leftSection">
-      <img src={contactUsimg} alt="" className='contactUsimg' style={{ height: '678px', width: '633px' }} />
+      <div className="leftSection" >
+      <img src={contactUsimg} alt="" className='contactUsimg' style={{ height: '490px', width:'600px' }} />
       </div>
-        <div className="rightSection">
+      <div className="rightSection">
         <div className="contactUsHeading">
             <h3>Contact Us</h3>
             <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi incidunt esse fugit porro numquam sint deleniti atque deserunt eligendi delectus? Aperiam doloremque, eligendi velit magnam pariatur deleniti quibusdam architecto corporis?
             </p>
         </div>
-      <div className="ContactUsContainer">
+        <div className="ContactUsContainer">
 
         <form method="post">
           <label htmlFor="name">Full Name</label>
@@ -117,7 +117,7 @@ export default function ContactUs() {
                   <Link to='/about'>About</Link>
                   </li>
                 <li>
-                  <Link to='/contact us'>Contact Us</Link>
+                  <Link to='/contactUs'>Contact Us</Link>
                   </li>
               </ul>
           </div>
