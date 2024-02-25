@@ -7,7 +7,7 @@ import SearchDisplay from './SearchDisplay';
 
 function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [showSearchDisplay, setShowSearchDisplay] = useState(false);
+  // const [showSearchDisplay, setShowSearchDisplay] = useState(false);
   const navigate = useNavigate();
 
   const toggleLogin = () => {
@@ -15,7 +15,6 @@ function Navbar() {
   };
 
   const handleSearchBtnClicked = () => {
-    setShowSearchDisplay(true);
     navigate('displaySearch')
   };
 
@@ -76,7 +75,7 @@ function Navbar() {
           </div>
         </nav>
       </div>
-      {showSearchDisplay && <SearchDisplay />}
+      {/* {showSearchDisplay && <SearchDisplay />} */}
       {isLoginOpen && <Login onClose={toggleLogin} />}
     </>
   );
