@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 import { useNavigate } from 'react-router-dom';
 // import searchCardImg from './room-pics.jpg';
-import SearchDisplay from './SearchDisplay';
+// import SearchDisplay from './SearchDisplay';
 
 function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);

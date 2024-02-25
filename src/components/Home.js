@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/home.css';
 import '../styles/footer.css';
 import bgpic from './photo/background-home.jpg';
 import { Link } from 'react-router-dom';
 import '../styles/SearchDisplay.css'
-import searchCardImg from './room-pics.jpg';
-import SearchDisplay from './SearchDisplay';
+// import searchCardImg from './room-pics.jpg';
+// import SearchDisplay from './SearchDisplay';
 
 
 export default function Home() {
-  
+
 
   return (
     <>
