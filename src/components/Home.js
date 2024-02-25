@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/home.css';
 import '../styles/footer.css';
 import bgpic from './photo/background-home.jpg';
 import { Link } from 'react-router-dom';
+import '../styles/SearchDisplay.css'
+import searchCardImg from './room-pics.jpg';
+import SearchDisplay from './SearchDisplay';
+
 
 export default function Home() {
+  
+
   return (
     <>
-       <div>
+      {/* <div>
         <div className="searchContainer" style={{ backgroundImage: `url(${bgpic})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: '1' }}>
           <div className="searchBox">
             <input type="text" className="searchInput" placeholder='Enter Location' />
-            <button className="searchButton">Search</button>
+            <button className="searchButton" onClick={handleSearchBtnClicked}>Search</button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div className="searchContainer" style={{ backgroundImage: `url(${bgpic})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: '1' }}></div>
+      {/* {showSearchDisplay && <SearchDisplay />} */}
 
       <div className='footerParent'>
         <footer>

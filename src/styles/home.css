@@ -2,22 +2,22 @@
 
 .searchContainer{
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   justify-content: center;
   align-items: center;
-  padding-bottom: 150px;
+  /* padding-bottom: 150px; */
 
 }
 
 .searchBox{
   display: flex;
-  padding: 20px;
-  margin: 30px;
+  /* padding: 20px; */
+  /* margin: 30px; */
   align-items: center;
 }
 
 .searchBox input{
-  width: 1000px  ;
+  width: 500px  ;
   border-radius: 10px;
   border: 0.5px solid #80808057;
   height: 45px;

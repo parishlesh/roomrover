@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from './Login';
+import { useNavigate } from 'react-router-dom';
+// import searchCardImg from './room-pics.jpg';
+import SearchDisplay from './SearchDisplay';
 
 function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [showSearchDisplay, setShowSearchDisplay] = useState(false);
+  const navigate = useNavigate();
 
   const toggleLogin = () => {
     setIsLoginOpen(!isLoginOpen);
+  };
+
+  const handleSearchBtnClicked = () => {
+    setShowSearchDisplay(true);
+    navigate('displaySearch')
   };
 
   return (
@@ -45,7 +55,20 @@ function Navbar() {
                     Contact Us
                   </Link>
                 </li>
+                {/* <li className="nav-item">
+                  <Link className="nav-link" to="/displaySearch">
+                    Search Display
+                  </Link>
+                </li> */}
               </ul>
+              <div className="searchContainer">
+                <div className="searchBox">
+                  <input type="text" className="searchInput" placeholder='Enter Location' />
+                  <button className="btn btn-outline-success" type="submit" onClick={handleSearchBtnClicked}>
+                    Search
+                  </button>
+                </div>
+              </div>
               <button className="btn btn-outline-success" type="submit" onClick={toggleLogin}>
                 Login
               </button>
@@ -53,6 +76,7 @@ function Navbar() {
           </div>
         </nav>
       </div>
+      {showSearchDisplay && <SearchDisplay />}
       {isLoginOpen && <Login onClose={toggleLogin} />}
     </>
   );

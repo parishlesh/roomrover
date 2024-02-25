@@ -9,6 +9,7 @@ import {
   BrowserRouter as Router,
   Route
 } from "react-router-dom";
+import SearchDisplay from './components/SearchDisplay';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path='/home' element={<Home/>} />
       <Route path='/about' element={<About/>}/>
       <Route path='/contactUS' element={<ContactUs/>}></Route>
+      {/* <Route path='/displaySearch' element={<SearchDisplay/>}></Route> */}
       </Routes>
     </Router>
   </>
