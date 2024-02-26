@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <>
       <div>
-        <nav className="navbar navbar-expand-lg bg-success p-2 text-dark bg-opacity-10">
+        <nav className="navbar navbar-expand-lg bg-success px-2 text-dark bg-opacity-10">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/home">
               RoomRover
@@ -60,17 +60,19 @@ function Navbar() {
                   </Link>
                 </li> */}
               </ul>
-              <div className="searchContainer">
-                <div className="searchBox">
-                  <input type="text" className="searchInput" placeholder='Enter Location' />
-                  <button className="btn btn-outline-success" type="submit" onClick={handleSearchBtnClicked}>
-                    Search
-                  </button>
+              <div className='d-flex '>
+                <div className="searchContainer d-flex">
+                  <div className="searchBox d-flex align-items-center h-auto">
+                    <input type="text" className="searchInput" placeholder='Enter Location' />
+                    <button className="btn btn-outline-success" type="submit" onClick={handleSearchBtnClicked}>
+                      Search
+                    </button>
+                  </div>
                 </div>
+                <button className="btn btn-outline-success " type="submit" onClick={toggleLogin}>
+                  Login
+                </button>
               </div>
-              <button className="btn btn-outline-success" type="submit" onClick={toggleLogin}>
-                Login
-              </button>
             </div>
           </div>
         </nav>
