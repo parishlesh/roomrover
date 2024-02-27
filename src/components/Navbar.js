@@ -54,11 +54,11 @@ function Navbar() {
                     Contact Us
                   </Link>
                 </li>
-                {/* <li className="nav-item">
-                  <Link className="nav-link" to="/displaySearch">
-                    Search Display
+                <li className="nav-item">
+                  <Link className="nav-link" to="/displayCard">
+                    display card
                   </Link>
-                </li> */}
+                </li>
               </ul>
               <div className='d-flex '>
                 <div className="searchContainer d-flex">

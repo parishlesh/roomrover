@@ -10,6 +10,7 @@ import {
   Route
 } from "react-router-dom";
 import SearchDisplay from './components/SearchDisplay';
+import DisplayCard from './components/DisplayCard';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path='/about' element={<About/>}/>
       <Route path='/contactUS' element={<ContactUs/>}></Route>
       <Route path='/displaySearch' element={<SearchDisplay/>}></Route>
+      <Route path='/displayCard' element={<DisplayCard/>}></Route>
       </Routes>
     </Router>
   </>

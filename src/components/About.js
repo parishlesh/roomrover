@@ -1,8 +1,8 @@
 import React from 'react'
 import '../styles/about.css';
-import pic1 from './img1.jpg'
-import pic2 from './img2.jpg'
-import pic3 from './img3.jpg'
+import pic1 from '../photos/img1.jpg'
+import pic2 from '../photos/img2.jpg'
+import pic3 from '../photos/img3.jpg'
 import '../styles/footer.css';
 import { useState } from 'react';
 import Login from './Login';

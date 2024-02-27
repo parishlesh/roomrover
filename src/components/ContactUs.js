@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/footer.css';
 import '../styles/contactus.css'
 import { Link } from 'react-router-dom';
-import contactUsimg from './contactUsImg.jpg'
+import contactUsimg from '../photos/contactUsImg.jpg'
 
 export default function ContactUs() {
 
