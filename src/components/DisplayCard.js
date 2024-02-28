@@ -30,14 +30,23 @@ export default function DisplayCard() {
                                 key={index}
                             >
                                 {index === current && (
-                                    <img src={slide.displayimg} alt='travel image' className='image' />
-                                    )}
-                                   <button onClick={prevSlide} className='image-slider-btn'>
-                                    <FaArrowAltCircleLeft/>
-                                    </button> 
-                                    <button onClick={nextSlide} className='image-slider-btn'>
-                                    <FaArrowAltCircleRight/>
-                                    </button>
+                                    <div className='imageContainer'>
+                                        <div className='imgObj'>
+                                            <img src={slide.displayimg} alt='travel image' className='image' />
+                                            <div className='btn-on-img'>
+                                                <button onClick={prevSlide} className='image-slider-btn left' >
+                                                    <FaArrowAltCircleLeft/>
+                                                </button>
+                                                <button onClick={nextSlide} className='image-slider-btn right'>
+                                                    <FaArrowAltCircleRight/>
+                                                </button>
+                                            </div>
+                                        </div>``
+
+                                    </div>
+                                )}
+
+
                             </div>
                         );
                     })}

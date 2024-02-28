@@ -17,47 +17,61 @@
     display: block;
 }
 
-.image {
+.imageContainer {
     display: block;
+    justify-content: center;
     width: 60%;
     margin: 0 auto;
-    border-radius: 12px ;
+    border-radius: 12px;
 }
 
-.left-arrow,
-.right-arrow {
-all: unset;
-display: block;
-position: absolute;
-top: 0;
-bottom: 0;
-padding: 1rem;
-cursor: pointer;
+.image,
+.imgObj {
+    width: 100%;
+}
+
+.btn-on-img {
+    /* position: absolute; */
+    top: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-slider-btn {
+    all: unset;
+    /* top: 0; */
+    /* bottom: 0; */
+    cursor: pointer;
+
+    display: block;
+    /* position: absolute; */
+    padding: 1rem;
 }
 
 
-.left-arrow:hover,
-.right-arrow:hover{
-    background-color: rgba(0,0,0,0.2);
-} 
+.image-slider-btn:hover,
+.image-slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
-.left-arrow {
-    left: 0;
+/* .image-slider-btn .left {
+
     stroke: white;
-fill: black;
-width: 2rem;
-height: 2rem;
+    fill: black;
+    width: 2rem;
+    height: 2rem;
 
-}
+} */
+/* 
+.image-slider-btn .right {
 
-.right-arrow {
-    right: 0;
     stroke: white;
-fill: black;
-width: 2rem;
-height: 2rem;
+    fill: black;
+    width: 2rem;
+    height: 2rem;
 
-}
+} */
 
 .desc {
     margin-top: 20px;
