@@ -1,0 +1,76 @@
+.CardDisplay {
+    position: relative;
+    margin-top: 50px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.image {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 12px ;
+}
+
+.left-arrow,
+.right-arrow {
+all: unset;
+display: block;
+position: absolute;
+top: 0;
+bottom: 0;
+padding: 1rem;
+cursor: pointer;
+}
+
+
+.left-arrow:hover,
+.right-arrow:hover{
+    background-color: rgba(0,0,0,0.2);
+} 
+
+.left-arrow {
+    left: 0;
+    stroke: white;
+fill: black;
+width: 2rem;
+height: 2rem;
+
+}
+
+.right-arrow {
+    right: 0;
+    stroke: white;
+fill: black;
+width: 2rem;
+height: 2rem;
+
+}
+
+.desc {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.desc h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.desc p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}

@@ -7,7 +7,7 @@ import {data} from '../data/data'
 
 export default function SearchDisplay() {
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <div>
