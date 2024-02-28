@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { sliderData } from '../data/sliderData';
+import { data } from '../data/data'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../styles/displaycard.css';
 
@@ -35,13 +36,13 @@ export default function DisplayCard() {
                                             <img src={slide.displayimg} alt='travel image' className='image' />
                                             <div className='btn-on-img'>
                                                 <button onClick={prevSlide} className='image-slider-btn left' >
-                                                    <FaArrowAltCircleLeft/>
+                                                    <FaArrowAltCircleLeft />
                                                 </button>
                                                 <button onClick={nextSlide} className='image-slider-btn right'>
-                                                    <FaArrowAltCircleRight/>
+                                                    <FaArrowAltCircleRight />
                                                 </button>
                                             </div>
-                                        </div>``
+                                        </div>
 
                                     </div>
                                 )}
@@ -51,12 +52,12 @@ export default function DisplayCard() {
                         );
                     })}
                 </section>
-                <div className="desc">
-                    {/* Add details code here */}
+                <div className="descriptionDetail">
+                    {data.map((dataItem)=>(
                     <h2>Cozy Studio Apartment</h2>
                     <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum luctus posuere. Sed varius magna eget lobortis.</p>
-                    <p>Price: $100 per night</p>
-                    {/* Add more details as needed */}
+                    <p><span className="text-title">Rent: ₹{dataItem.price}</span></p>
+                    {/* Add more details as needed */})}
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@
 }
 
 .btn-on-img {
-    /* position: absolute; */
+    position: absolute;
     top: 50%;
     width: 60%;
     display: flex;
@@ -44,7 +44,7 @@
     /* bottom: 0; */
     cursor: pointer;
 
-    display: block;
+    /* display: block; */
     /* position: absolute; */
     padding: 1rem;
 }
@@ -73,18 +73,20 @@
 
 } */
 
-.desc {
-    margin-top: 20px;
-    text-align: center;
+.descriptionDetail {
+    width: 60%;
+    margin: 20px auto;
+    text-align: start;
 }
 
-.desc h2 {
+.descriptionDetail h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-.desc p {
+.descriptionDetail p {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 10px;
+    text-align: left;
 }
