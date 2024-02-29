@@ -6,7 +6,7 @@ import img from '../photos/room-pics.jpg'
 import { data } from '../data/data'
 
 export default function SearchDisplay() {
-   
+
     return (
         <div>
             <div className="displayContainer">

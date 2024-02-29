@@ -40,12 +40,7 @@
 
 .image-slider-btn {
     all: unset;
-    /* top: 0; */
-    /* bottom: 0; */
     cursor: pointer;
-
-    /* display: block; */
-    /* position: absolute; */
     padding: 1rem;
 }
 
@@ -54,24 +49,6 @@
 .image-slider-btn:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
-
-/* .image-slider-btn .left {
-
-    stroke: white;
-    fill: black;
-    width: 2rem;
-    height: 2rem;
-
-} */
-/* 
-.image-slider-btn .right {
-
-    stroke: white;
-    fill: black;
-    width: 2rem;
-    height: 2rem;
-
-} */
 
 .descriptionDetail {
     width: 60%;

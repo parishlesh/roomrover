@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import SearchDisplay from './components/SearchDisplay';
 import DisplayCard from './components/DisplayCard';
+import CreatePost from './components/CreatePost';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contactUS' element={<ContactUs />}></Route>
         <Route path='/displaySearch' element={<SearchDisplay />}></Route>
+        <Route path='/createPost' element={<CreatePost/>}></Route>
         <Route path={`/displayCard/:aptId`} element={<DisplayCard />}></Route>
       </Routes>
     </Router>

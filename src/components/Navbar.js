@@ -54,6 +54,12 @@ function Navbar() {
                     Contact Us
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/createPost">
+                    createPost
+                  </Link>
+                </li>
+                {/* <button>xyz</button> */}
               </ul>
               <div className='d-flex '>
                 <div className="searchContainer d-flex">
