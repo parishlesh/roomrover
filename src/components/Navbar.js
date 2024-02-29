@@ -54,11 +54,6 @@ function Navbar() {
                     Contact Us
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/displayCard">
-                    display card
-                  </Link>
-                </li>
               </ul>
               <div className='d-flex '>
                 <div className="searchContainer d-flex">
@@ -77,7 +72,6 @@ function Navbar() {
           </div>
         </nav>
       </div>
-      {/* {showSearchDisplay && <SearchDisplay />} */}
       {isLoginOpen && <Login onClose={toggleLogin} />}
     </>
   );

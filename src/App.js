@@ -19,12 +19,12 @@ function App() {
     <Router>
       <Navbar></Navbar>
       <Routes>
-      <Route exect path='/' element={<Home/>}></Route>
-      <Route path='/home' element={<Home/>} />
-      <Route path='/about' element={<About/>}/>
-      <Route path='/contactUS' element={<ContactUs/>}></Route>
-      <Route path='/displaySearch' element={<SearchDisplay/>}></Route>
-      <Route path='/displayCard' element={<DisplayCard/>}></Route>
+        <Route exect path='/' element={<Home />}></Route>
+        <Route path='/home' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contactUS' element={<ContactUs />}></Route>
+        <Route path='/displaySearch' element={<SearchDisplay />}></Route>
+        <Route path={`/displayCard/:aptId`} element={<DisplayCard />}></Route>
       </Routes>
     </Router>
   </>

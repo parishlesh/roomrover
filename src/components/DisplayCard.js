@@ -3,10 +3,20 @@ import { sliderData } from '../data/sliderData';
 import { data } from '../data/data'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../styles/displaycard.css';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function DisplayCard() {
     const [current, setCurrent] = useState(0);
+    const [apt, setApt] = useState('');
     const length = sliderData.length;
+
+    const { aptId } = useParams()
+    useEffect(() => {
+        const roomData = data.find(room => room.id === parseInt(aptId))
+        setApt(roomData)
+        console.log(apt)
+    }, [apt, aptId])
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
@@ -19,6 +29,7 @@ export default function DisplayCard() {
     if (!Array.isArray(sliderData) || sliderData.length <= 0) {
         return null;
     }
+
 
     return (
         <div>
@@ -33,7 +44,7 @@ export default function DisplayCard() {
                                 {index === current && (
                                     <div className='imageContainer'>
                                         <div className='imgObj'>
-                                            <img src={slide.displayimg} alt='travel image' className='image' />
+                                            <img src={slide.displayimg} alt='room' className='image' />
                                             <div className='btn-on-img'>
                                                 <button onClick={prevSlide} className='image-slider-btn left' >
                                                     <FaArrowAltCircleLeft />
@@ -53,11 +64,15 @@ export default function DisplayCard() {
                     })}
                 </section>
                 <div className="descriptionDetail">
-                    {data.map((dataItem)=>(
-                    <h2>Cozy Studio Apartment</h2>
-                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum luctus posuere. Sed varius magna eget lobortis.</p>
-                    <p><span className="text-title">Rent: ₹{dataItem.price}</span></p>
-                    {/* Add more details as needed */})}
+                    {/* {data.map((dataItem) => ( */}
+                        <div>
+
+                            <h2>{apt.name}</h2>
+                            <p>Description: {apt.desc}</p>
+                            <p><span className="text-title">Rent: ₹{apt.price}</span></p>
+                            {/* Add more details as needed */}
+                        </div>
+                    {/* ))} */}
                 </div>
             </div>
         </div>
