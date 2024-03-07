@@ -1,94 +1,74 @@
 import React, { useState } from 'react';
+import '../styles/createpost.css';
 
-const CreatePost = () => {
-    const [formData, setFormData] = useState({
-        image1: '',
-        image2: '',
-        image3: '',
-        image4: '',
-        image5: '',
-        bedroom: '',
-        bathroom: '',
-        furnishing: '',
-        bachelorsAllowed: false,
-        parkingAvailable: false
-    });
+export default function CreatePost() {
+  const [dragging, setDragging] = useState(false);
+  const [images, setImages] = useState([]);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(true);
+  };
 
-    const handleCheckboxChange = (e) => {
-        const { name, checked } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: checked
-        }));
-    };
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(false);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Here you can handle form submission logic like posting data to a server
-        console.log(formData);
-        // Redirect to the page where the ad is showing
-        // history.push('/ad-preview'); // Assuming you are using React Router
-    };
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
 
-    const handleCancel = () => {
-        // Redirect back to the previous page
-        // history.goBack(); // Assuming you are using React Router
-    };
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(false);
+    const files = Array.from(e.dataTransfer.files);
+    handleFiles(files);
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Image 1:
-                <input type="file" name="image1" onChange={handleChange} />
-            </label>
-            <label>
-                Image 2:
-                <input type="file" name="image2" onChange={handleChange} />
-            </label>
-            <label>
-                Image 3:
-                <input type="file" name="image3" onChange={handleChange} />
-            </label>
-            <label>
-                Image 4:
-                <input type="file" name="image4" onChange={handleChange} />
-            </label>
-            <label>
-                Image 5:
-                <input type="file" name="image5" onChange={handleChange} />
-            </label>
-            <label>
-                Bedroom:
-                <input type="number" name="bedroom" onChange={handleChange} />
-            </label>
-            <label>
-                Bathroom:
-                <input type="number" name="bathroom" onChange={handleChange} />
-            </label>
-            <label>
-                Furnishing:
-                <input type="text" name="furnishing" onChange={handleChange} />
-            </label>
-            <label>
-                Bachelors Allowed:
-                <input type="checkbox" name="bachelorsAllowed" onChange={handleCheckboxChange} />
-            </label>
-            <label>
-                Parking Available:
-                <input type="checkbox" name="parkingAvailable" onChange={handleCheckboxChange} />
-            </label>
-            <button type="submit">Post Ad</button>
-            <button type="button" onClick={handleCancel}>Cancel</button>
-        </form>
-    );
-};
+  const handleFileInputChange = (e) => {
+    const files = Array.from(e.target.files);
+    handleFiles(files);
+  };
 
-export default CreatePost;
+  const handleFiles = (files) => {
+    const imageFiles = files.filter(file => file.type.startsWith('image/'));
+    setImages([...images, ...imageFiles]);
+  };
+
+  return (
+    <div
+      className={dragging ? 'drop-container dragging' : 'drop-container'}
+      onDragEnter={handleDragEnter}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        multiple
+        onChange={handleFileInputChange}
+        className="file-input"
+      />
+      <label htmlFor="fileInput" className="file-label">
+        {dragging ? 'Drop here' : 'Drag & Drop or Click to upload'}
+      </label>
+      <div className="image-previews">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={URL.createObjectURL(image)}
+            alt={`Preview ${index}`}
+            className="image-preview"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
