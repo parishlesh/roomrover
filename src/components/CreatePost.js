@@ -110,18 +110,22 @@ export default function CreatePost() {
           ))}
         </div>
         <div className="container d-flex align-items-center justify-content-center">
-          <button className="file-label" onClick={handleClick}>
+          <button className="btn btn-success" onClick={handleClick}>
             Drag & Drop or Click to upload
           </button>
         </div>
-        <input
-          type="file"
-          ref={inputFileRef}
-          onChange={handleFileInputChange}
-          style={{ display: 'none' }}
-          multiple
-          accept="image/*"
-        />
+          </div>
+        <div className="container details">
+
+          <input
+            type="file"
+            ref={inputFileRef}
+            onChange={handleFileInputChange}
+            style={{ display: 'none' }}
+            multiple
+            accept="image/*"
+          />
+        </div>
         <input
           type="text"
           name="name"
@@ -142,24 +146,6 @@ export default function CreatePost() {
           onChange={handleChange}
           placeholder="Description"
         />
-        <label>
-          <input
-            type="checkbox"
-            name="parkingAvailable"
-            checked={propertyInfo.parkingAvailable}
-            onChange={handleChange}
-          />
-          Parking Available
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="bachelorsAllowed"
-            checked={propertyInfo.bachelorsAllowed}
-            onChange={handleChange}
-          />
-          Bachelors Allowed
-        </label>
         <input
           type="text"
           name="otherFacilities"
@@ -167,15 +153,35 @@ export default function CreatePost() {
           onChange={handleChange}
           placeholder="Other Facilities"
         />
+        <div className="parking-and-bachelors">
+
+          <label>
+            <input
+              type="checkbox"
+              name="parkingAvailable"
+              checked={propertyInfo.parkingAvailable}
+              onChange={handleChange}
+            />
+            Parking Available
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="bachelorsAllowed"
+              checked={propertyInfo.bachelorsAllowed}
+              onChange={handleChange}
+            />
+            Bachelors Allowed
+          </label>
+        </div>
         <div className="d-flex justify-content-center mt-3">
-          <button className="btn btn-primary me-3" onClick={handlePostAd}>
+          <button className="btn btn-success me-3" onClick={handlePostAd}>
             Post Ad
           </button>
-          <button className="btn btn-secondary" onClick={handleCancel}>
+          <button className="btn btn-success" onClick={handleCancel}>
             Cancel
           </button>
         </div>
-      </div>
     </div>
   );
 }
