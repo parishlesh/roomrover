@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from './Login';
 import { useNavigate } from 'react-router-dom';
+import { IoPersonSharp } from "react-icons/io5";
+
 // import searchCardImg from './room-pics.jpg';
 // import SearchDisplay from './SearchDisplay';
 
@@ -59,9 +61,14 @@ function Navbar() {
                     createPost
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/userProfile">
+                    <IoPersonSharp />
+                  </Link>
+                </li>
                 {/* <button>xyz</button> */}
               </ul>
-              <div className='d-flex '>
+              <div className='d-flex'>
                 <div className="searchContainer d-flex">
                   <div className="searchBox d-flex align-items-center h-auto">
                     <input type="text" className="searchInput" placeholder='Enter Location' />

@@ -2,36 +2,37 @@
     border: 2px dashed #ccc;
     padding: 20px;
     border-radius: 5px;
+    display: flex;
     text-align: center;
     cursor: pointer;
-  }
-  
-  .drop-container.dragging {
+    justify-content: center;
+}
+
+.drop-container.dragging {
     background-color: #f0f0f0;
-  }
-  
-  .file-input {
+}
+
+.file-input {
     display: none;
-  }
-  
-  .file-label {
+}
+
+.file-label {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .image-previews {
+}
+
+.image-previews {
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-  }
-  
-  .image-preview {
+}
+
+.image-preview {
     max-width: 100px;
     max-height: 100px;
     margin-right: 10px;
     margin-bottom: 10px;
-  }
-  
+}
