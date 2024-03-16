@@ -61,11 +61,11 @@ function Navbar() {
                     Create Post
                   </Link>
                 </li>
-                {/* <li className="nav-item">
+                <li className="nav-item">
                   <Link className="nav-link" to="/userProfile">
                     <IoPersonSharp />
                   </Link>
-                </li> */}
+                </li>
               </ul>
               <div className='d-flex'>
                 <div className="searchContainer d-flex">

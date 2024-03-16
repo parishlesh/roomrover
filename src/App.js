@@ -28,7 +28,7 @@ function App() {
         <Route path='/displaySearch' element={<SearchDisplay />}></Route>
         <Route path='/createPost' element={<CreatePost />}></Route>
         <Route path={`/displayCard/:aptId`} element={<DisplayCard />}></Route>
-        {/* <Route exact path="/userProfile" element={<UserProfile />} /> */}
+        <Route exact path="/userProfile" element={<UserProfile />} />
       </Routes>
     </Router>
   </>
