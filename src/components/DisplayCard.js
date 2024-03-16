@@ -65,13 +65,13 @@ export default function DisplayCard() {
                 </section>
                 <div className="descriptionDetail">
                     {/* {data.map((dataItem) => ( */}
-                        <div>
+                    <div>
 
-                            <h2>{apt.name}</h2>
-                            <p>Description: {apt.desc}</p>
-                            <p><span className="text-title">Rent: ₹{apt.price}</span></p>
-                            {/* Add more details as needed */}
-                        </div>
+                        <h2>{apt.name}</h2>
+                        <p>Description: {apt.desc}</p>
+                        <p><span className="text-title">Rent: ₹{apt.price}</span></p>
+                        {/* Add more details as needed */}
+                    </div>
                     {/* ))} */}
                 </div>
             </div>
