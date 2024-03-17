@@ -11,23 +11,26 @@ const UserProfile = () => {
                     <div className="col col-lg-11 col-xl-101">
                         <div className="userProfileCard">
                             <div className="rounded text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
-                                <div className="ms-4  d-flex flex-column" style={{ width: '150px' }}>
-                                    <div className="profileimg" style={{ width: '150px', height: '150px', overflow: 'hidden' }}>
-                                        <img src={profileimg}
-                                            alt="Generic placeholder image" className="img-fluid img-thumbnail mt-4 mb-2 "
-                                            style={{ width: '150px', zIndex: 1 }} />
+                                <div className="ms-4 d-flex flex-column" style={{ width: '150px' }}>
+                                    <div className="profileimg rounded mt-4 justify-content-center" style={{ height: '150px', overflow: 'hidden' }}>
+                                        <div className="img-thumbnail" style={{ width: '100%', height: '100%', padding: '0', overflow: 'hidden' }}>
+                                            <img src={profileimg}
+                                                alt="Generic placeholder image" className="img-fluid"
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        </div>
                                     </div>
-                                    <button type="button" className="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                    <button type="button" className="btn btn-outline-light" data-mdb-ripple-color="dark"
                                         style={{ zIndex: 1 }}>
                                         Edit profile
                                     </button>
                                 </div>
+
                                 <div className="ms-3" style={{ marginTop: '130px' }}>
                                     <h5>Parishlesh</h5>
                                     <p>Hisar</p>
                                 </div>
                             </div>
-                          
+
                             <div className="card-body p-4 text-black">
                                 <div className="mb-5">
                                     <p className="lead fw-normal mb-1">About</p>
