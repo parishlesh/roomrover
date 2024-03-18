@@ -44,7 +44,7 @@ export default function DisplayCard() {
                                 {index === current && (
                                     <div className='imageContainer'>
                                         <div className='imgObj'>
-                                            <img src={slide.displayimg} alt='room' className='image' />
+                                            <img src={slide.displayimg} alt='room' className='image w-100' />
                                             <div className='btn-on-img'>
                                                 <button onClick={prevSlide} className='image-slider-btn left' >
                                                     <FaArrowAltCircleLeft />

@@ -13,16 +13,8 @@ export default function Home() {
 
   return (
     <>
-      {/* <div>
-        <div className="searchContainer" style={{ backgroundImage: `url(${bgpic})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: '1' }}>
-          <div className="searchBox">
-            <input type="text" className="searchInput" placeholder='Enter Location' />
-            <button className="searchButton" onClick={handleSearchBtnClicked}>Search</button>
-          </div>
-        </div>
-      </div> */}
+      
       <div className="searchContainer" style={{ backgroundImage: `url(${bgpic})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: '1' }}></div>
-      {/* {showSearchDisplay && <SearchDisplay />} */}
 
       <div className='footerParent'>
         <footer>
