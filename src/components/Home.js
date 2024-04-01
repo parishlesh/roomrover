@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/home.css';
 import '../styles/footer.css';
-import bgpic from './photo/background-home.jpg';
+// import bgpic from './photo/background-home.jpg';
 import { Link } from 'react-router-dom';
 import '../styles/SearchDisplay.css'
 // import searchCardImg from './room-pics.jpg';
 // import SearchDisplay from './SearchDisplay';
 
 
+
 export default function Home() {
 
+  const [bgIndex, setBgIndex] = useState(0);
+  const bgImages = [
+    require('../components/photo/background-home.jpg'),
+    require('../components/photo/hand-holding-small-house-with-tree-growing-out-it (1).jpg'),
+    require('../components/photo/hand-holding-small-house-with-tree-growing-out-it.jpg'),
+    require('../components/photo/night-architecture-outdoors-dusk-building-exterior-tree-grass-illuminated-generative-ai.jpg')
+  ];
+
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+      console.log('working')
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [bgImages.length])
 
   return (
     <>
-      
-      <div className="searchContainer" style={{ backgroundImage: `url(${bgpic})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: '1' }}></div>
+
+      <div className="searchContainer" style={{
+        backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 1, // Initial opacity
+        transition: 'opacity 0.5s ease-in-out'
+      }}></div>
 
       <div className='footerParent'>
         <footer>
@@ -84,17 +105,17 @@ export default function Home() {
             </div>
             <div className='footerNav'>
               <ul>
-              <li>
+                <li>
                   <Link to="/home">
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link to='/about'>About</Link>
-                  </li>
+                </li>
                 <li>
                   <Link to='/contactUs'>Contact Us</Link>
-                  </li>
+                </li>
               </ul>
             </div>
           </div>
