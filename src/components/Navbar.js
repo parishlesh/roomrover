@@ -6,7 +6,7 @@ import { IoPersonSharp } from "react-icons/io5";
 
 function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const toggleLogin = () => {
