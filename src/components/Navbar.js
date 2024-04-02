@@ -4,12 +4,9 @@ import Login from './Login';
 import { useNavigate } from 'react-router-dom';
 import { IoPersonSharp } from "react-icons/io5";
 
-// import searchCardImg from './room-pics.jpg';
-// import SearchDisplay from './SearchDisplay';
-
 function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  // const [showSearchDisplay, setShowSearchDisplay] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
   const navigate = useNavigate();
 
   const toggleLogin = () => {
@@ -18,6 +15,11 @@ function Navbar() {
 
   const handleSearchBtnClicked = () => {
     navigate('displaySearch')
+  };
+
+  const handleLogout = () => {
+    // Perform logout functionality, and update isLoggedIn state accordingly
+    setIsLoggedIn(false);
   };
 
   return (
@@ -61,13 +63,8 @@ function Navbar() {
                     Create Post
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/userProfile">
-                    <IoPersonSharp />
-                  </Link>
-                </li>
               </ul>
-              <div className='d-flex'>
+              <div className="d-flex align-items-center">
                 <div className="searchContainer d-flex">
                   <div className="searchBox d-flex align-items-center h-auto">
                     <input type="text" className="searchInput" placeholder='Enter Location' />
@@ -76,9 +73,17 @@ function Navbar() {
                     </button>
                   </div>
                 </div>
-                <button className="btn btn-outline-success " type="submit" onClick={toggleLogin}>
-                  Login
-                </button>
+                <div className="ms-2">
+                  {isLoggedIn ? ( // Render user profile link only if user is logged in
+                    <Link className="nav-link" to="/userProfile">
+                      <IoPersonSharp />
+                    </Link>
+                  ) : (
+                    <button className="btn btn-outline-success" onClick={toggleLogin}>
+                      Login
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
