@@ -6,7 +6,7 @@ import { IoPersonSharp } from "react-icons/io5";
 
 function Navbar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const navigate = useNavigate();
 
   const toggleLogin = () => {
@@ -18,7 +18,6 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    // Perform logout functionality, and update isLoggedIn state accordingly
     setIsLoggedIn(false);
   };
 
@@ -74,7 +73,7 @@ function Navbar() {
                   </div>
                 </div>
                 <div className="ms-2">
-                  {isLoggedIn ? ( // Render user profile link only if user is logged in
+                  {isLoggedIn ? (
                     <Link className="nav-link" to="/userProfile">
                       <IoPersonSharp />
                     </Link>
