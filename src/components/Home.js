@@ -24,13 +24,18 @@ export default function Home() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
-      console.log('working')
       setShowText(true)
       setTimeout(() => {
         setShowText(false)
-      }, 2000);
-    }, 3000);
+        console.log('text shown')
+      }, 7000);
+
+      setTimeout(() => {
+        setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+        console.log('img shown')
+      }, 5000);
+
+    }, 9000);
 
     return () => clearInterval(intervalId);
   }, [bgImages.length])
@@ -39,10 +44,10 @@ export default function Home() {
     <>
 
       <div className="searchContainer" style={{
-        backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 1, // Initial opacity
-        transition: 'opacity 0.5s ease-in-out'
+        backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: showText ? 1 : 0, // Initial opacity
+        transition: 'opacity 2s ease-in-out'
       }}>
-         {showText && <TextOverlay />}
+        {showText && <TextOverlay />}
       </div>
 
       <div className='footerParent'>
