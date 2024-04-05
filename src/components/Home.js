@@ -13,7 +13,7 @@ import TextOverlay from './TextOverlay';
 export default function Home() {
 
   const [bgIndex, setBgIndex] = useState(0);
-  const [showText, setShowText] = useState(false)
+  const [showText, setShowText] = useState(false);
   const bgImages = [
     require('../components/photo/background-home.jpg'),
     require('../components/photo/hand-holding-small-house-with-tree-growing-out-it (1).jpg'),
@@ -21,21 +21,22 @@ export default function Home() {
     require('../components/photo/night-architecture-outdoors-dusk-building-exterior-tree-grass-illuminated-generative-ai.jpg')
   ];
 
-
+  
+  
   useEffect(() => {
     const intervalId = setInterval(() => {
       setShowText(true)
       setTimeout(() => {
         setShowText(false)
         console.log('text shown')
-      }, 7000);
+      }, 5000);
 
       setTimeout(() => {
         setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
         console.log('img shown')
       }, 5000);
 
-    }, 9000);
+    }, 6000);
 
     return () => clearInterval(intervalId);
   }, [bgImages.length])
@@ -47,6 +48,7 @@ export default function Home() {
         backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: showText ? 1 : 0, // Initial opacity
         transition: 'opacity 2s ease-in-out'
       }}>
+
         {showText && <TextOverlay />}
       </div>
 

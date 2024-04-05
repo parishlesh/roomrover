@@ -4,10 +4,10 @@ import Typewriter from 'typewriter-effect/dist/core'
 function TextOverlay() {
 useEffect(() => {
     new Typewriter('#heading',{
-        strings: ['heading here', 'paragraph here'],
+        strings: ['heading here some bigger texxt is showing for the testing purpose', 'paragraph here'],
         autoStart: true, 
         loop: true,
-        delay: 75,
+        delay: 50,
     }).pauseFor(1000);
     console.log('text overlay')
 })
