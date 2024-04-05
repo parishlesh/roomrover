@@ -4,6 +4,7 @@ import '../styles/footer.css';
 // import bgpic from './photo/background-home.jpg';
 import { Link } from 'react-router-dom';
 import '../styles/SearchDisplay.css'
+import TextOverlay from './TextOverlay';
 // import searchCardImg from './room-pics.jpg';
 // import SearchDisplay from './SearchDisplay';
 
@@ -12,6 +13,7 @@ import '../styles/SearchDisplay.css'
 export default function Home() {
 
   const [bgIndex, setBgIndex] = useState(0);
+  const [showText, setShowText] = useState(false)
   const bgImages = [
     require('../components/photo/background-home.jpg'),
     require('../components/photo/hand-holding-small-house-with-tree-growing-out-it (1).jpg'),
@@ -24,6 +26,10 @@ export default function Home() {
     const intervalId = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
       console.log('working')
+      setShowText(true)
+      setTimeout(() => {
+        setShowText(false)
+      }, 2000);
     }, 3000);
 
     return () => clearInterval(intervalId);
@@ -35,7 +41,9 @@ export default function Home() {
       <div className="searchContainer" style={{
         backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 1, // Initial opacity
         transition: 'opacity 0.5s ease-in-out'
-      }}></div>
+      }}>
+         {showText && <TextOverlay />}
+      </div>
 
       <div className='footerParent'>
         <footer>

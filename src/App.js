@@ -13,6 +13,7 @@ import SearchDisplay from './components/SearchDisplay';
 import DisplayCard from './components/DisplayCard';
 import CreatePost from './components/CreatePost';
 import UserProfile from './components/UserProfile';
+// import TextOverlay from './components/TextOverlay';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/userProfile" element={<UserProfile />} />
       </Routes>
     </Router>
+    {/* <TextOverlay/> */}
   </>
   );
 }
