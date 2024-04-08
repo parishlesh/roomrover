@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/home.css';
 import '../styles/footer.css';
 // import bgpic from './photo/background-home.jpg';
@@ -7,49 +7,44 @@ import '../styles/SearchDisplay.css'
 import TextOverlay from './TextOverlay';
 // import searchCardImg from './room-pics.jpg';
 // import SearchDisplay from './SearchDisplay';
-
+import img1 from './photo/background-home.jpg'
+import img2 from './photo/hand-presenting-model-house-home-loan-campaign.jpg'
+import img3 from './photo/hand-holding-small-house-with-tree-growing-out-it.jpg'
+import img4 from './photo/night-architecture-outdoors-dusk-building-exterior-tree-grass-illuminated-generative-ai.jpg'
 
 
 export default function Home() {
+  const imageRef = useRef()
 
-  const [bgIndex, setBgIndex] = useState(0);
-  const [showText, setShowText] = useState(false);
+  const [bgIndex, setBgIndex] = useState(0)
+
   const bgImages = [
-    require('../components/photo/background-home.jpg'),
-    require('../components/photo/hand-holding-small-house-with-tree-growing-out-it (1).jpg'),
-    require('../components/photo/hand-holding-small-house-with-tree-growing-out-it.jpg'),
-    require('../components/photo/night-architecture-outdoors-dusk-building-exterior-tree-grass-illuminated-generative-ai.jpg')
+    img1,
+    img2,
+    img3,
+    img4,
   ];
 
-  
-  
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setShowText(true)
-      setTimeout(() => {
-        setShowText(false)
-        console.log('text shown')
-      }, 5000);
-
-      setTimeout(() => {
-        setBgIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
-        console.log('img shown')
-      }, 5000);
-
-    }, 6000);
-
+      if (bgIndex < bgImages.length - 1) { setBgIndex(prevIndex => prevIndex + 1); }
+      else { setBgIndex(0) }
+    }, 3000);
+    console.log('u1 invoked')
     return () => clearInterval(intervalId);
-  }, [bgImages.length])
+  })
 
+  useEffect(() => {
+    console.log('u2 invoked')
+
+    imageRef.current.style.transition = '3s ease-in-out'
+  }, [bgIndex])
   return (
     <>
-
-      <div className="searchContainer" style={{
-        backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: showText ? 1 : 0, // Initial opacity
-        transition: 'opacity 2s ease-in-out'
+      <div ref={imageRef} className="searchContainer" style={{
+        backgroundImage: `url(${bgImages[bgIndex]})`, minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', opacity: '0.8'// Initial opacity
       }}>
-
-        {showText && <TextOverlay />}
+        {<TextOverlay />}
       </div>
 
       <div className='footerParent'>

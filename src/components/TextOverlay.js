@@ -4,13 +4,13 @@ import Typewriter from 'typewriter-effect/dist/core'
 function TextOverlay() {
 useEffect(() => {
     new Typewriter('#heading',{
-        strings: ['heading here some bigger texxt is showing for the testing purpose', 'paragraph here'],
+        strings: ['heading text', 'paragraph here'],
         autoStart: true, 
         loop: true,
-        delay: 50,
-    }).pauseFor(1000);
-    console.log('text overlay')
-})
+        delay: 75,
+    }).pauseFor(3000);
+    console.log('u3 invoked')
+},[])
 
     return (
         <div className="d-flex align-items-center flex-column justify-content-center" style={{minHeight:"100vh"}}>
