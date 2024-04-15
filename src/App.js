@@ -13,18 +13,34 @@ import SearchDisplay from './components/SearchDisplay';
 import DisplayCard from './components/DisplayCard';
 import CreatePost from './components/CreatePost';
 import UserProfile from './components/UserProfile';
-// import TextOverlay from './components/TextOverlay';
 
+
+// import TextOverlay from './components/TextOverlay';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-
+  function notify() {
+    toast.success('logged in successfully!');
+    console.log('hello')
+  }
   return (<>
     <Router>
-      <Navbar></Navbar>
+      <ToastContainer
+        position="top-right"
+        autoClose={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
+      <Navbar notify={notify}></Navbar>
       <Routes>
         <Route exect path='/' element={<Home />}></Route>
         <Route path='/home' element={<Home />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={<About notify={notify} />} />
         <Route path='/contactUS' element={<ContactUs />}></Route>
         <Route path='/displaySearch' element={<SearchDisplay />}></Route>
         <Route path='/createPost' element={<CreatePost />}></Route>

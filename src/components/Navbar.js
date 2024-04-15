@@ -4,7 +4,9 @@ import Login from './Login';
 import { useNavigate } from 'react-router-dom';
 import { IoPersonSharp } from "react-icons/io5";
 
-function Navbar() {
+
+function Navbar({notify}) {
+
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ function Navbar() {
 
   return (
     <>
+
       <div>
         <nav className="navbar navbar-expand-lg bg-success px-2 text-dark bg-opacity-10">
           <div className="container-fluid">
@@ -88,7 +91,7 @@ function Navbar() {
           </div>
         </nav>
       </div>
-      {isLoginOpen && <Login onClose={toggleLogin} />}
+      {isLoginOpen && <Login notify={notify} setIsLoginOpen={setIsLoginOpen} onClose={toggleLogin} />}
     </>
   );
 }

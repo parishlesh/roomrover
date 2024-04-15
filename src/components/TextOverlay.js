@@ -7,9 +7,9 @@ useEffect(() => {
         strings: ['heading text', 'paragraph here'],
         autoStart: true, 
         loop: true,
-        delay: 75,
-    }).pauseFor(3000);
-    console.log('u3 invoked')
+        delay: 150,
+    }).pauseFor(1000);
+    // console.log('u3 invoked')
 },[])
 
     return (
