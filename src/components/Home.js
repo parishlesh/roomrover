@@ -32,7 +32,7 @@ export default function Home() {
     const intervalId = setInterval(() => {
       if (bgIndex < bgImages.length - 1) { setBgIndex(prevIndex => prevIndex + 1); }
       else { setBgIndex(0) }
-    }, 3000);
+    }, 5000);
     console.log('u1 invoked')
     return () => clearInterval(intervalId);
   })
