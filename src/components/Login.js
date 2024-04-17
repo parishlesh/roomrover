@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../styles/login.css';
 
 const Login = ({ notify, onClose, setIsLoginOpen }) => {
@@ -10,85 +10,82 @@ const Login = ({ notify, onClose, setIsLoginOpen }) => {
     const [name, setName] = useState('')
     const navigate = useNavigate()
 
-    const handleChange = (e)=>{
+    const handleChange = (e) => {
         e.preventDefault()
-        if(e.target.name === 'emailLogin'){
+        if (e.target.name === 'emailLogin') {
             setEmail(e.target.value)
             console.log(email)
-        }else if(e.target.name === 'passLogin'){
+        } else if (e.target.name === 'passLogin') {
             setPass(e.target.value)
             console.log(pass)
         }
-     
+
     }
-    const handleChangeRegister = (e)=>{
+    const handleChangeRegister = (e) => {
         e.preventDefault()
-        if(e.target.name === 'emailRegister'){
+        if (e.target.name === 'emailRegister') {
             setEmail(e.target.value)
             console.log(email)
-        }else if(e.target.name === 'passRegister'){
+        } else if (e.target.name === 'passRegister') {
             setPass(e.target.value)
             console.log(pass)
         }
-        else if(e.target.name === 'nameRegsiter'){
+        else if (e.target.name === 'nameRegsiter') {
             setName(e.target.value)
             console.log(pass)
         }
-     
+
     }
 
-    
-        const fetchData = async (e) => {
-            e.preventDefault()
+    const fetchData = async (e) => {
+        e.preventDefault()
 
-            const response = await fetch('http://127.0.0.1:8000/roomrover/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    // Add parameters here
-                    "email":email,
-                    "password": pass
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-            const data = await response.json()
-            if(data.success)
-            {
-               console.log('logged in')
-               notify()
-               setIsLoginOpen(false)
-               setTimeout(() => {
+        const response = await fetch('http://127.0.0.1:8000/roomrover/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                // Add parameters here
+                "email": email,
+                "password": pass
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+        const data = await response.json()
+        if (data.success) {
+            console.log('logged in')
+            notify()
+            setIsLoginOpen(false)
+            setTimeout(() => {
                 navigate('/')
-               }, 3000);
-            }
-            console.log(data)
-            setInfo(data)
+            }, 3000);
         }
-        const register = async (e) => {
-            e.preventDefault()
+        console.log(data)
+        setInfo(data)
+    }
+    const register = async (e) => {
+        e.preventDefault()
 
-            const response = await fetch('http://127.0.0.1:8000/roomrover/signup', {
-                method: 'POST',
-                body: JSON.stringify({
-                    // Add parameters here
-                    "email":email,
-                    "password": pass,
-                    "name" : name
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-            const data = await response.json()
-            if(data.success)
-            {
-               console.log('Registered')
-               notify()
-            }
-            console.log(data)
-            setInfo(data)
+        const response = await fetch('http://127.0.0.1:8000/roomrover/signup', {
+            method: 'POST',
+            body: JSON.stringify({
+                // Add parameters here
+                "email": email,
+                "password": pass,
+                "name": name
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+        const data = await response.json()
+        if (data.success) {
+            console.log('Registered')
+            notify()
         }
+        console.log(data)
+        setInfo(data)
+    }
 
 
 
