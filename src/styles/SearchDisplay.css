@@ -1,6 +1,6 @@
 .displayContainer{
     display: flex;
-    margin: 50px 150px;
+    margin: 50px 100px;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;

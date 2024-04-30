@@ -8,7 +8,7 @@ import { data } from '../data/data'
 export default function SearchDisplay() {
 
     return (
-        <div>
+        <div className="m-auto" style={{width: "auto"}}>
             <div className="displayContainer">
                 {data.map((dataItem) => (
                     <div key={dataItem.id} className="searchCard">

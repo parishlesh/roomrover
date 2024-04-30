@@ -36,5 +36,12 @@ export const data = [
         desc: "Room description and details Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus tenetur sunt labore, veritatis blanditiis laudantium odio soluta maxime provident! Tempora, distinctio voluptatem. Illum, delectus corporis veniam laborum sequi cupiditate minus length",
         price: 7100,
     },
+    {
+        id: 5,
+        Img: img1,
+        name: "Cozy Studio 6",
+        desc: "Room description and details Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus tenetur sunt labore, veritatis blanditiis laudantium odio soluta maxime provident! Tempora, distinctio voluptatem. Illum, delectus corporis veniam laborum sequi cupiditate minus length",
+        price: 2900,
+    },
 
 ]

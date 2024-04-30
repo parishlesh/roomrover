@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/home.css';
 import '../styles/footer.css';
 // import bgpic from './photo/background-home.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/SearchDisplay.css'
 import TextOverlay from './TextOverlay';
 // import searchCardImg from './room-pics.jpg';
@@ -14,8 +14,9 @@ import img4 from './photo/night-architecture-outdoors-dusk-building-exterior-tre
 
 
 
-export default function Home() {
+export default function Home({setProgress}) {
 
+  const location = useLocation()
 
   const imageRef = useRef()
 
@@ -28,6 +29,10 @@ export default function Home() {
     img4,
   ];
 
+  useEffect(() => {
+    setProgress(100)
+  }, [location, setProgress])
+  
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (bgIndex < bgImages.length - 1) { setBgIndex(prevIndex => prevIndex + 1); }

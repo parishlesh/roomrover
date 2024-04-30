@@ -29,7 +29,7 @@ function Navbar({notify}) {
       <div>
         <nav className="navbar navbar-expand-lg bg-success px-2 text-dark bg-opacity-10">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/home">
+            <Link className="navbar-brand" to="/">
               RoomRover
             </Link>
             <button
@@ -46,7 +46,7 @@ function Navbar({notify}) {
             <div className="collapse navbar-collapse" id="navbarScroll">
               <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" styles={"--bs-scroll-height: 100px;"}>
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/home">
+                  <Link className="nav-link active" aria-current="page" to="/">
                     Home
                   </Link>
                 </li>

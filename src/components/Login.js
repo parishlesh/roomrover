@@ -10,6 +10,7 @@ const Login = ({ notify, onClose, setIsLoginOpen }) => {
     const [name, setName] = useState('')
     const navigate = useNavigate()
 
+ 
     const handleChange = (e) => {
         e.preventDefault()
         if (e.target.name === 'emailLogin') {
@@ -57,8 +58,8 @@ const Login = ({ notify, onClose, setIsLoginOpen }) => {
             notify()
             setIsLoginOpen(false)
             setTimeout(() => {
-                navigate('/')
-            }, 3000);
+                navigate('/userProfile')
+            }, 2000);
         }
         console.log(data)
         setInfo(data)

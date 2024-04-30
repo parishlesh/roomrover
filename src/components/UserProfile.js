@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/userprofile.css';
 import { data } from '../data/data';
 import profileimg from '../profilepics/IMG_20220113_181430_236.webp';
+import { useLocation } from 'react-router-dom';
 
-const UserProfile = () => {
+const UserProfile = ({setProgress}) => {
     const [profileImage, setProfileImage] = useState(profileimg);
     const [name, setName] = useState("User");
     const [about, setAbout] = useState("");
@@ -11,6 +12,7 @@ const UserProfile = () => {
     const [isEditingAbout, setIsEditingAbout] = useState(false)
     const [tempName, setTempName] = useState(name);
     const [tempAbout, setTempAbout] = useState(about);
+    const location = useLocation()    
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -43,7 +45,10 @@ const UserProfile = () => {
         setAbout(tempAbout);
         setIsEditingAbout(false);
     }
-
+    useEffect(() => {
+        setProgress(100)
+      },[location, location])
+      
     return (
         <section className="h-100 gradient-custom-2">
             <div className="container py-5 h-100">
