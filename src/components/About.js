@@ -28,7 +28,7 @@ function About({ notify }) {
           <p>
             At RoomRover, we're on a mission to revolutionize travel planning. Our platform offers personalized recommendations, insider tips, and a seamless booking experience. Join us and unlock unforgettable adventures worldwide.
           </p>
-          <button onClick={notify}>Join Us</button>
+          <button>Join Us</button>
 
           {isLoginOpen && <Login onClose={toggleLogin} />}
         </div>
@@ -64,7 +64,7 @@ function About({ notify }) {
         <p style={{ fontSize: '22px' }}>
           "Enhance your journey with RoomRover's exclusive benefits and personalized recommendations."
         </p>
-        <div className="cards" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', }}>
+        <div className="cards d-flex align-items-center justify-content-around align-items-center">
           <div className="card card1" style={{ fontSize: '18px', fontWeight: '500' }}>Personalized Recommendations</div>
           <div className="card card2" style={{ fontSize: '18px', fontWeight: '500' }}>Insider Insights</div>
           <div className="card card3" style={{ fontSize: '18px', fontWeight: '500' }}>Seamless Booking Experience</div>

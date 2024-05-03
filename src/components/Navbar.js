@@ -66,10 +66,10 @@ function Navbar({notify}) {
                   </Link>
                 </li>
               </ul>
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center ">
                 <div className="searchContainer d-flex">
                   <div className="searchBox d-flex align-items-center h-auto">
-                    <input type="text" className="searchInput" placeholder='Enter Location' />
+                    <input type="text" className="searchInput mb-0" placeholder='Enter Location' />
                     <button className="btn btn-outline-success" type="submit" onClick={handleSearchBtnClicked}>
                       Search
                     </button>
