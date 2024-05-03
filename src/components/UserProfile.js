@@ -115,10 +115,10 @@ const UserProfile = ({setProgress}) => {
                                     <p className="lead fw-normal mb-0">Posts</p>
                                     <p className="mb-0"><a href="#!" className="text-muted">Show all</a></p>
                                 </div>
-                                <div>
-                                    <div className="displayContainer d-flex flex-nowrap m-1">
+                                <div className='w-100'>
+                                    <div className="displayContainer grid m-1 w-100">
                                         {data.map((dataItem) => (
-                                            <div key={dataItem.id} className="searchCard">
+                                            <div key={dataItem.id} className="searchCard col-6 col-md-4">
                                                 {console.log(dataItem.Img)}
                                                 <div className="card-img">
                                                     <img src={dataItem.Img} alt="" className='searchCardImg' style={{ height: '170px' }} />

@@ -7,10 +7,10 @@ import '../styles/SearchDisplay.css'
 import TextOverlay from './TextOverlay';
 // import searchCardImg from './room-pics.jpg';
 // import SearchDisplay from './SearchDisplay';
-import img1 from './photo/background-home.jpg'
-import img2 from './photo/hand-presenting-model-house-home-loan-campaign.jpg'
-import img3 from './photo/hand-holding-small-house-with-tree-growing-out-it.jpg'
-import img4 from './photo/night-architecture-outdoors-dusk-building-exterior-tree-grass-illuminated-generative-ai.jpg'
+import img1 from "../photo/background-home.jpg"
+import img2 from '../photo/hand-presenting-model-house-home-loan-campaign.jpg'
+import img3 from '../photo/hand-holding-small-house-with-tree-growing-out-it.jpg'
+import img4 from '../photo/night-architecture-outdoors-dusk-building-exterior-tree-grass-illuminated-generative-ai.jpg'
 
 
 

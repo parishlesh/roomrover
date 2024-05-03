@@ -65,6 +65,11 @@ function Navbar({notify}) {
                     Create Post
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/userProfile">
+                    user Profile
+                    </Link>
+                </li>
               </ul>
               <div className="d-flex align-items-center ">
                 <div className="searchContainer d-flex">
