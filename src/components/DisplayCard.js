@@ -10,8 +10,9 @@ export default function DisplayCard() {
     const [current, setCurrent] = useState(0);
     const [apt, setApt] = useState('');
     const length = sliderData.length;
-
     const { aptId } = useParams()
+ 
+
     useEffect(() => {
         const roomData = data.find(room => room.id === parseInt(aptId))
         setApt(roomData)
@@ -30,7 +31,7 @@ export default function DisplayCard() {
         return null;
     }
 
-
+   
     return (
         <div>
             <div className="CardDisplay">
