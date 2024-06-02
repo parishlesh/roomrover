@@ -3,7 +3,6 @@ import '../styles/home.css';
 import '../styles/SearchDisplay.css'
 import img from '../photos/room-pics.jpg'
 // import searchCardImg from '../photos/room-pics.jpg'
-import { data } from '../data/data'
 
 export default function SearchDisplay() {
     const [rooms, setRooms] = useState([]);
@@ -31,14 +30,15 @@ export default function SearchDisplay() {
                 {rooms.map((room) => (
                     <div key={room.id} className="searchCard">
                         <div className="card-img">
-                            {room.picture ? (
-                                <img src={room.picture} alt={room.property_name} className='searchCardImg' style={{ height: '170px' }} />
+
+                            {room.image ? (
+                                <img src={`http://127.0.0.1:8000/${room.image}`} alt={room.property_name} className='searchCardImg' style={{ height: '170px' }} />
                             ) : (
                                 <div className="placeholder-image">No Image Available</div>
                             )}
                         </div>
                         <div className="card-info">
-                            <p className="text-title">Location: {room.city} </p>
+                            <p className="text-title">Location {room.city} </p>
                             <a style={{ textDecoration: "none" }} href={`/displayCard/${room.id}`}>
                                 <p className="text-body">{room.description.substring(0, 100)}...<span style={{ color: "red" }}>read more</span></p>
                             </a>

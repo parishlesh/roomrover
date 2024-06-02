@@ -38,12 +38,12 @@ export default function Home({setProgress}) {
       if (bgIndex < bgImages.length - 1) { setBgIndex(prevIndex => prevIndex + 1); }
       else { setBgIndex(0) }
     }, 5000);
-    console.log('u1 invoked')
+    // console.log('u1 invoked')
     return () => clearInterval(intervalId);
   })
 
   useEffect(() => {
-    console.log('u2 invoked')
+    // console.log('u2 invoked')
     imageRef.current.style.transition = '3s ease-in-out'
   }, [bgIndex])
   return (

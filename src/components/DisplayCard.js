@@ -8,17 +8,29 @@ import { useEffect } from 'react';
 
 export default function DisplayCard() {
     const [current, setCurrent] = useState(0);
-    const [apt, setApt] = useState('');
+    const [room, setRoom] = useState(null)
     const length = sliderData.length;
-    const { aptId } = useParams()
- 
 
+    const { roomId } = useParams()
     useEffect(() => {
-        const roomData = data.find(room => room.id === parseInt(aptId))
-        setApt(roomData)
-        console.log(apt)
-    }, [apt, aptId])
+        const fetchRoom = async () => {
+            try {
+                // Fetch charging station details by ID
+                console.log(roomId)
+                const response = await fetch(`http://127.0.0.1:8000/roomrover/room/${parseInt(roomId)}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+                setRoom(data);
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+            }
+        };
 
+        fetchRoom();
+    }, [roomId]);
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
     };
@@ -31,7 +43,6 @@ export default function DisplayCard() {
         return null;
     }
 
-   
     return (
         <div>
             <div className="CardDisplay">
@@ -45,7 +56,7 @@ export default function DisplayCard() {
                                 {index === current && (
                                     <div className='imageContainer'>
                                         <div className='imgObj'>
-                                            <img src={slide.displayimg} alt='room' className='image w-100' />
+                                            <img src={room && `http://127.0.0.1:8000/${room.image}`} alt='room' className='image w-100' />
                                             <div className='btn-on-img'>
                                                 <button onClick={prevSlide} className='image-slider-btn left' >
                                                     <FaArrowAltCircleLeft />
@@ -58,8 +69,6 @@ export default function DisplayCard() {
 
                                     </div>
                                 )}
-
-
                             </div>
                         );
                     })}
@@ -67,10 +76,9 @@ export default function DisplayCard() {
                 <div className="descriptionDetail">
                     {/* {data.map((dataItem) => ( */}
                     <div>
-
-                        <h2>{apt.name}</h2>
-                        <p>Description: {apt.desc}</p>
-                        <p><span className="text-title">Rent: ₹{apt.price}</span></p>
+                        <h2>{room && room.property_name}</h2>
+                        <p>Description: {room && room.description}</p>
+                        <p><span className="text-title">Rent: ₹{room && room.rent}</span></p>
                         {/* Add more details as needed */}
                     </div>
                     {/* ))} */}

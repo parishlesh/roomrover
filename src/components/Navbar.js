@@ -70,6 +70,11 @@ function Navbar({notify}) {
                     user Profile
                     </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/userProfileForOtherUsers">
+                    user Profile for other users
+                    </Link>
+                </li>
               </ul>
               <div className="d-flex align-items-center ">
                 <div className="searchContainer d-flex">

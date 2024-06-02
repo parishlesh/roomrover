@@ -4,15 +4,18 @@ import { data } from '../data/data';
 import profileimg from '../profilepics/IMG_20220113_181430_236.webp';
 import { useLocation } from 'react-router-dom';
 
-const UserProfile = ({setProgress}) => {
+const UserProfile = ({ setProgress }) => {
     const [profileImage, setProfileImage] = useState(profileimg);
     const [name, setName] = useState("User");
     const [about, setAbout] = useState("");
+    const [contact, setContact] = useState("");
     const [isEditing, setIsEditing] = useState(false);
-    const [isEditingAbout, setIsEditingAbout] = useState(false)
+    const [isEditingAbout, setIsEditingAbout] = useState(false);
+    const [isEditingContact, setIsEditingContact] = useState(false);
     const [tempName, setTempName] = useState(name);
     const [tempAbout, setTempAbout] = useState(about);
-    const location = useLocation()    
+    const [tempContact, setTempContact] = useState(contact);
+    const location = useLocation();
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -35,7 +38,13 @@ const UserProfile = ({setProgress}) => {
     const handleEditAbout = () => {
         setTempAbout(about);
         setIsEditingAbout(true);
-    }
+    };
+
+    const handleEditContact = () => {
+        setTempContact(contact);
+        setIsEditingContact(true);
+    };
+
     const handleSaveProfile = () => {
         setName(tempName);
         setIsEditing(false);
@@ -44,11 +53,17 @@ const UserProfile = ({setProgress}) => {
     const handleSaveAbout = () => {
         setAbout(tempAbout);
         setIsEditingAbout(false);
-    }
+    };
+
+    const handleSaveContact = () => {
+        setContact(tempContact);
+        setIsEditingContact(false);
+    };
+
     useEffect(() => {
-        setProgress(100)
-      },[location, location])
-      
+        setProgress(100);
+    }, [location, location]);
+
     return (
         <section className="h-100 gradient-custom-2">
             <div className="container py-5 h-100">
@@ -99,14 +114,35 @@ const UserProfile = ({setProgress}) => {
                                 ) : (
                                     <div className="mb-5">
                                         <div className="d-flex">
-
-                                        <p className="lead fw-normal mb-1">About</p>
-                                        <button className='editbtn' onClick={handleEditAbout}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill ms-2" viewBox="0 0 24 24">
-                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
-                                        </svg></button>
+                                            <p className="lead fw-normal mb-1">About</p>
+                                            <button className='editbtn' onClick={handleEditAbout}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill ms-2" viewBox="0 0 24 24">
+                                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                                            </svg></button>
                                         </div>
                                         <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
                                             <p>{about}</p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {isEditingContact ? (
+                                    <div className="mb-5">
+                                        <p className="lead fw-normal mb-1">Contact Me</p>
+                                        <div>
+                                            <input type="text" value={tempContact} onChange={(e) => setTempContact(e.target.value)} />
+                                            <button className="btn btn-outline-dark mt-2" onClick={handleSaveContact}>Save</button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="mb-5">
+                                        <div className="d-flex">
+                                            <p className="lead fw-normal mb-1">Contact Me</p>
+                                            <button className='editbtn' onClick={handleEditContact}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-fill ms-2" viewBox="0 0 24 24">
+                                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                                            </svg></button>
+                                        </div>
+                                        <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                                            <p>{contact}</p>
                                         </div>
                                     </div>
                                 )}

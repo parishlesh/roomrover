@@ -14,11 +14,13 @@ import DisplayCard from './components/DisplayCard';
 import CreatePost from './components/CreatePost';
 import UserProfile from './components/UserProfile';
 
-
 // import TextOverlay from './components/TextOverlay';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
-import LoadingBar from 'react-top-loading-bar'
+import 'react-toastify/dist/ReactToastify.css';
+import LoadingBar from 'react-top-loading-bar';
+import UserProfileForOtherUsers from './components/UserProfileForOtherUsers';
+
+
 
 function App() {
   function notify() {
@@ -52,8 +54,9 @@ function App() {
         <Route path='/contactUS' element={<ContactUs />}/>
         <Route path='/displaySearch' element={<SearchDisplay />}/>
         <Route path='/createPost' element={<CreatePost />}/>
-        <Route path={`/displayCard/:aptId`} element={<DisplayCard />}/>
+        <Route path={`/displayCard/:roomId`} element={<DisplayCard />}/>
         <Route exact path="/userProfile" element={<UserProfile setProgress={setProgress} />} />
+        <Route wxact path='/userProfileForOtherUsers' element={<UserProfileForOtherUsers setProgress={setProgress} />} />
       </Routes>
     </BrowserRouter>
     {/* <TextOverlay/> */}
