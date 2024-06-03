@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Login from './Login';
-import { useNavigate } from 'react-router-dom';
 import { IoPersonSharp } from "react-icons/io5";
 
-
-function Navbar({notify}) {
-
+function Navbar({ notify }) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
   const toggleLogin = () => {
@@ -16,7 +14,9 @@ function Navbar({notify}) {
   };
 
   const handleSearchBtnClicked = () => {
-    navigate('displaySearch')
+    if (query.trim() !== '') {
+      navigate(`/displaySearch/${query}`);
+    }
   };
 
   const handleLogout = () => {
@@ -25,7 +25,6 @@ function Navbar({notify}) {
 
   return (
     <>
-
       <div>
         <nav className="navbar navbar-expand-lg bg-success px-2 text-dark bg-opacity-10">
           <div className="container-fluid">
@@ -67,20 +66,30 @@ function Navbar({notify}) {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/userProfile">
-                    user Profile
-                    </Link>
+                    User Profile
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/userProfileForOtherUsers">
-                    user Profile for other users
-                    </Link>
+                    User Profile for Other Users
+                  </Link>
                 </li>
               </ul>
-              <div className="d-flex align-items-center ">
+              <div className="d-flex align-items-center">
                 <div className="searchContainer d-flex">
                   <div className="searchBox d-flex align-items-center h-auto">
-                    <input type="text" className="searchInput mb-0" placeholder='Enter Location' />
-                    <button className="btn btn-outline-success" type="submit" onClick={handleSearchBtnClicked}>
+                    <input
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      type="text"
+                      className="searchInput mb-0"
+                      placeholder="Enter Location"
+                    />
+                    <button
+                      className="btn btn-outline-success"
+                      type="button"
+                      onClick={handleSearchBtnClicked}
+                    >
                       Search
                     </button>
                   </div>

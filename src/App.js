@@ -47,14 +47,14 @@ function App() {
         color='#1A906B'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
-      />      
+      />
       <Routes>
-        <Route path='/' element={<Home setProgress={setProgress} />}/>
+        <Route path='/' element={<Home setProgress={setProgress} />} />
         <Route path='/about' element={<About notify={notify} />} />
-        <Route path='/contactUS' element={<ContactUs />}/>
-        <Route path='/displaySearch' element={<SearchDisplay />}/>
-        <Route path='/createPost' element={<CreatePost />}/>
-        <Route path={`/displayCard/:roomId`} element={<DisplayCard />}/>
+        <Route path='/contactUS' element={<ContactUs />} />
+        <Route path="/displaySearch/:query" element={<SearchDisplay />} />
+        <Route path='/createPost' element={<CreatePost />} />
+        <Route path={`/displayCard/:roomId`} element={<DisplayCard />} />
         <Route exact path="/userProfile" element={<UserProfile setProgress={setProgress} />} />
         <Route wxact path='/userProfileForOtherUsers' element={<UserProfileForOtherUsers setProgress={setProgress} />} />
       </Routes>

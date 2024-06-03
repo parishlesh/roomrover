@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import axios from 'axios';
 import '../styles/createpost.css';
 
 export default function CreatePost() {
@@ -10,7 +11,10 @@ export default function CreatePost() {
     description: '',
     parkingAvailable: false,
     bachelorsAllowed: false,
-    otherFacilities: ''
+    otherFacilities: '',
+    email: '', // Added email field
+    contact: '', // Added contact field
+    rent: '', // Added rent field
   });
 
   const inputFileRef = useRef(null);
@@ -72,11 +76,41 @@ export default function CreatePost() {
     inputFileRef.current.click();
   };
 
-  const handlePostAd = () => {
-    // Logic to post ad goes here
-    console.log('Posting ad:', propertyInfo, images);
-    // Reset state or close component
+  const handlePostAd = async () => {
+    const formData = new FormData();
+    formData.append('email', propertyInfo.email);
+    formData.append('property_name', propertyInfo.name);
+    formData.append('city', propertyInfo.location);
+    formData.append('state', ''); // Add state if needed
+    formData.append('size', propertyInfo.otherFacilities);
+    formData.append('description', propertyInfo.description);
+    formData.append('parking_available', propertyInfo.parkingAvailable);
+    formData.append('bachelors_allowed', propertyInfo.bachelorsAllowed);
+    formData.append('contact', propertyInfo.contact);
+    formData.append('rent', propertyInfo.rent);
+
+    images.forEach((image) => {
+      formData.append('pictures', image);
+    });
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/roomrover/createroom', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Room created successfully:', data);
+      // Reset form or redirect user
+    } catch (error) {
+      console.error('Error creating room:', error);
+    }
   };
+
 
   const handleCancel = () => {
     // Logic to cancel goes here
@@ -114,74 +148,93 @@ export default function CreatePost() {
             Drag & Drop or Click to upload
           </button>
         </div>
-          </div>
-        <div className="container details">
-
+      </div>
+      <div className="container details">
+        <input
+          type="file"
+          ref={inputFileRef}
+          onChange={handleFileInputChange}
+          style={{ display: 'none' }}
+          multiple
+          accept="image/*"
+        />
+      </div>
+      <input
+        type="text"
+        name="email"
+        value={propertyInfo.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
+      <input
+        type="text"
+        name="name"
+        value={propertyInfo.name}
+        onChange={handleChange}
+        placeholder="Property Name"
+      />
+      <input
+        type="text"
+        name="location"
+        value={propertyInfo.location}
+        onChange={handleChange}
+        placeholder="Location"
+      />
+      <textarea
+        name="description"
+        value={propertyInfo.description}
+        onChange={handleChange}
+        placeholder="Description"
+      />
+      <input
+        type="text"
+        name="otherFacilities"
+        value={propertyInfo.otherFacilities}
+        onChange={handleChange}
+        placeholder="Other Facilities"
+      />
+      <input
+        type="text"
+        name="contact"
+        value={propertyInfo.contact}
+        onChange={handleChange}
+        placeholder="Contact"
+      />
+      <input
+        type="text"
+        name="rent"
+        value={propertyInfo.rent}
+        onChange={handleChange}
+        placeholder="Rent"
+      />
+      <div className="parking-and-bachelors">
+        <label>
           <input
-            type="file"
-            ref={inputFileRef}
-            onChange={handleFileInputChange}
-            style={{ display: 'none' }}
-            multiple
-            accept="image/*"
+            type="checkbox"
+            name="parkingAvailable"
+            checked={propertyInfo.parkingAvailable}
+            onChange={handleChange}
           />
-        </div>
-        <input
-          type="text"
-          name="name"
-          value={propertyInfo.name}
-          onChange={handleChange}
-          placeholder="Property Name"
-        />
-        <input
-          type="text"
-          name="location"
-          value={propertyInfo.location}
-          onChange={handleChange}
-          placeholder="Location"
-        />
-        <textarea
-          name="description"
-          value={propertyInfo.description}
-          onChange={handleChange}
-          placeholder="Description"
-        />
-        <input
-          type="text"
-          name="otherFacilities"
-          value={propertyInfo.otherFacilities}
-          onChange={handleChange}
-          placeholder="Other Facilities"
-        />
-        <div className="parking-and-bachelors">
-
-          <label>
-            <input
-              type="checkbox"
-              name="parkingAvailable"
-              checked={propertyInfo.parkingAvailable}
-              onChange={handleChange}
-            />
-            Parking Available
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="bachelorsAllowed"
-              checked={propertyInfo.bachelorsAllowed}
-              onChange={handleChange}
-            />
-            Bachelors Allowed
-          </label>
-        </div>
-        <div className="d-flex justify-content-center mt-3">
-          <button className="btn btn-success me-3" onClick={handlePostAd}>
-            Post Ad
-          </button>
-          <button className="btn btn-success" onClick={handleCancel}>
-            Cancel
-          </button>
-        </div>
+          Parking Available
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="bachelorsAllowed"
+            checked={propertyInfo.bachelorsAllowed}
+            onChange={handleChange}
+          />
+          Bachelors Allowed
+        </label>
+      </div>
+      <div className="d-flex justify-content-center mt-3">
+        <button className="btn btn-success me-3" onClick={handlePostAd}>
+          Post Ad
+        </button>
+        <button className="btn btn-success" onClick={handleCancel}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 }
