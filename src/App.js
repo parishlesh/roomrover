@@ -55,8 +55,8 @@ function App() {
         <Route path="/displaySearch/:query" element={<SearchDisplay />} />
         <Route path='/createPost' element={<CreatePost />} />
         <Route path={`/displayCard/:roomId`} element={<DisplayCard />} />
-        <Route exact path="/userProfile" element={<UserProfile setProgress={setProgress} />} />
-        <Route wxact path='/userProfileForOtherUsers' element={<UserProfileForOtherUsers setProgress={setProgress} />} />
+        {/* <Route exact path="/userProfile" element={<UserProfile setProgress={setProgress} />} /> */}
+        {/* <Route wxact path='/userProfileForOtherUsers' element={<UserProfileForOtherUsers setProgress={setProgress} />} /> */}
       </Routes>
     </BrowserRouter>
     {/* <TextOverlay/> */}

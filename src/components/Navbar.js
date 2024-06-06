@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Login from './Login';
 import { IoPersonSharp } from "react-icons/io5";
@@ -13,6 +13,14 @@ function Navbar({ notify }) {
     setIsLoginOpen(!isLoginOpen);
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  });
+
   const handleSearchBtnClicked = () => {
     if (query.trim() !== '') {
       navigate(`/displaySearch/${query}`);
@@ -21,6 +29,7 @@ function Navbar({ notify }) {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('token');
   };
 
   return (
@@ -59,21 +68,13 @@ function Navbar({ notify }) {
                     Contact Us
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/createPost">
-                    Create Post
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/userProfile">
-                    User Profile
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/userProfileForOtherUsers">
-                    User Profile for Other Users
-                  </Link>
-                </li>
+                {isLoggedIn && (
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/createPost">
+                      Create Post
+                    </Link>
+                  </li>
+                )}
               </ul>
               <div className="d-flex align-items-center">
                 <div className="searchContainer d-flex">
@@ -96,9 +97,9 @@ function Navbar({ notify }) {
                 </div>
                 <div className="ms-2">
                   {isLoggedIn ? (
-                    <Link className="nav-link" to="/userProfile">
-                      <IoPersonSharp />
-                    </Link>
+                    <button className="btn btn-outline-success" onClick={handleLogout}>
+                      Logout
+                    </button>
                   ) : (
                     <button className="btn btn-outline-success" onClick={toggleLogin}>
                       Login

@@ -4,92 +4,80 @@ import '../styles/login.css';
 
 const Login = ({ notify, onClose, setIsLoginOpen }) => {
     const [isLoginForm, setIsLoginForm] = useState(true);
-    const [info, setInfo] = useState({})
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
-    const [name, setName] = useState('')
-    const navigate = useNavigate()
+    const [info, setInfo] = useState({});
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+    const [name, setName] = useState('');
+    const navigate = useNavigate();
 
- 
     const handleChange = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (e.target.name === 'emailLogin') {
-            setEmail(e.target.value)
-            console.log(email)
+            setEmail(e.target.value);
         } else if (e.target.name === 'passLogin') {
-            setPass(e.target.value)
-            console.log(pass)
+            setPass(e.target.value);
         }
+    };
 
-    }
     const handleChangeRegister = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (e.target.name === 'emailRegister') {
-            setEmail(e.target.value)
-            console.log(email)
+            setEmail(e.target.value);
         } else if (e.target.name === 'passRegister') {
-            setPass(e.target.value)
-            console.log(pass)
+            setPass(e.target.value);
+        } else if (e.target.name === 'nameRegister') { // Corrected typo here
+            setName(e.target.value);
         }
-        else if (e.target.name === 'nameRegsiter') {
-            setName(e.target.value)
-            console.log(pass)
-        }
-
-    }
+    };
 
     const fetchData = async (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
         const response = await fetch('http://127.0.0.1:8000/roomrover/login', {
             method: 'POST',
             body: JSON.stringify({
-                // Add parameters here
                 "email": email,
                 "password": pass
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
-        })
-        const data = await response.json()
+        });
+        const data = await response.json();
         if (data.success) {
-            console.log('logged in')
-            notify()
-            setIsLoginOpen(false)
+            console.log('logged in');
+            console.log(data.token);
+            localStorage.setItem('token', data.token);
+            notify();
+            setIsLoginOpen(false);
             setTimeout(() => {
-                navigate('/userProfile')
+                navigate('/');
             }, 2000);
         }
-        console.log(data)
-        setInfo(data)
-    }
-    const register = async (e) => {
-        e.preventDefault()
+        setInfo(data);
+    };
 
+    const register = async (e) => {
+        e.preventDefault();
         const response = await fetch('http://127.0.0.1:8000/roomrover/signup', {
             method: 'POST',
             body: JSON.stringify({
-                // Add parameters here
                 "email": email,
                 "password": pass,
-                "name": name
+                "username": name
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
-        })
-        const data = await response.json()
+        });
+        const data = await response.json();
         if (data.success) {
-            console.log('Registered')
-            notify()
+            console.log('Registered');
+            window.location.reload(); // Refresh the entire page
+            notify();
         }
-        console.log(data)
-        setInfo(data)
-    }
-
-
-
+        setInfo(data);
+    };
+    
     const handleSwitchClick = () => {
         setIsLoginForm(!isLoginForm);
     };

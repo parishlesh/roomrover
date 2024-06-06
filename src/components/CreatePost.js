@@ -15,6 +15,9 @@ export default function CreatePost() {
     email: '', // Added email field
     contact: '', // Added contact field
     rent: '', // Added rent field
+    city: '', // Added rent field
+    state: '', // Added rent field
+    size: '', // Added rent field
   });
 
   const inputFileRef = useRef(null);
@@ -80,14 +83,15 @@ export default function CreatePost() {
     const formData = new FormData();
     formData.append('email', propertyInfo.email);
     formData.append('property_name', propertyInfo.name);
-    formData.append('city', propertyInfo.location);
-    formData.append('state', ''); // Add state if needed
-    formData.append('size', propertyInfo.otherFacilities);
+    formData.append('city', propertyInfo.city);
+    formData.append('state',  propertyInfo.state); // Add state if needed
+    formData.append('size', propertyInfo.size);
     formData.append('description', propertyInfo.description);
     formData.append('parking_available', propertyInfo.parkingAvailable);
     formData.append('bachelors_allowed', propertyInfo.bachelorsAllowed);
     formData.append('contact', propertyInfo.contact);
     formData.append('rent', propertyInfo.rent);
+    formData.append('other_facilities', propertyInfo.otherFacilities);
 
     images.forEach((image) => {
       formData.append('pictures', image);
@@ -179,6 +183,27 @@ export default function CreatePost() {
         value={propertyInfo.location}
         onChange={handleChange}
         placeholder="Location"
+      />
+      <input
+        type="text"
+        name="city"
+        value={propertyInfo.city}
+        onChange={handleChange}
+        placeholder="city"
+      />
+      <input
+        type="text"
+        name="state"
+        value={propertyInfo.state}
+        onChange={handleChange}
+        placeholder="state"
+      />
+      <input
+        type="text"
+        name="size"
+        value={propertyInfo.size}
+        onChange={handleChange}
+        placeholder="size"
       />
       <textarea
         name="description"

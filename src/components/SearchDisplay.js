@@ -41,7 +41,7 @@ export default function SearchDisplay() {
                     <div key={room.id} className="searchCard">
                         <div className="card-img">
                             {room.images.length > 0 ? (
-                                <img src={`http://127.0.0.1:8000/${room.images[0]}`} alt={room.property_name} className='searchCardImg' style={{ height: '170px' }} />
+                                <img src={`http://127.0.0.1:8000/${room.images[0]}`} alt={room.property_name} className='searchCardImg w-100'/>
                             ) : (
                                 <div className="placeholder-image">No Image Available</div>
                             )}
