@@ -19,6 +19,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar';
 import UserProfileForOtherUsers from './components/UserProfileForOtherUsers';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

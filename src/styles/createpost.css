@@ -18,26 +18,9 @@
     display: none;
 }
 
-/* .file-label {
-    background: #22B286;
-    border-radius: 25px;
-    border: #22b286;
-    font-size: larger;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    padding: 6px 12px;
-    margin: 6px;
-    width: 15%;
-    transition: ease-out 0.2s;
+.input{
+  margin: 0.5rem ;
 }
-
-.file-label:hover {
-    background: #198754;
-} */
-
-
 
 .image-previews {
     display: flex;

@@ -1,6 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/createpost.css';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Toast from 'react-bootstrap/Toast';
 
 export default function CreatePost() {
   const [dragging, setDragging] = useState(false);
@@ -12,15 +17,28 @@ export default function CreatePost() {
     parkingAvailable: false,
     bachelorsAllowed: false,
     otherFacilities: '',
-    email: '', // Added email field
-    contact: '', // Added contact field
-    rent: '', // Added rent field
-    city: '', // Added rent field
-    state: '', // Added rent field
-    size: '', // Added rent field
+    email: '',
+    contact: '',
+    rent: '',
+    city: '',
+    state: '',
+    size: '',
   });
-
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const inputFileRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+        window.location.reload();
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showToast]);
 
   const handleDragEnter = (e) => {
     e.preventDefault();
@@ -84,7 +102,7 @@ export default function CreatePost() {
     formData.append('email', propertyInfo.email);
     formData.append('property_name', propertyInfo.name);
     formData.append('city', propertyInfo.city);
-    formData.append('state',  propertyInfo.state); // Add state if needed
+    formData.append('state', propertyInfo.state);
     formData.append('size', propertyInfo.size);
     formData.append('description', propertyInfo.description);
     formData.append('parking_available', propertyInfo.parkingAvailable);
@@ -109,20 +127,47 @@ export default function CreatePost() {
 
       const data = await response.json();
       console.log('Room created successfully:', data);
-      // Reset form or redirect user
+      setToastMessage('Successfully created ad');
+      setShowToast(true);
+      setPropertyInfo({
+        name: '',
+        location: '',
+        description: '',
+        parkingAvailable: false,
+        bachelorsAllowed: false,
+        otherFacilities: '',
+        email: '',
+        contact: '',
+        rent: '',
+        city: '',
+        state: '',
+        size: '',
+      });
+      setImages([]);
     } catch (error) {
       console.error('Error creating room:', error);
+      setToastMessage('Error creating post. Please try again.');
+      setShowToast(true);
     }
   };
 
-
   const handleCancel = () => {
-    // Logic to cancel goes here
-    // Reset state or close component
+    navigate('/');
   };
 
   return (
-    <div className="container p-5">
+    <div className="container p-5 d-flex align-items-center justify-content-center  flex-column">
+
+      <Row className='d-flex align-items-center justify-content-center'>
+        <Col xs={6}>
+          <Toast onClose={() => setShowToast(false)} show={showToast} delay={2000} autohide>
+            <Toast.Header>
+              <strong className="me-auto">Notification</strong>
+            </Toast.Header>
+            <Toast.Body>{toastMessage}</Toast.Body>
+          </Toast>
+        </Col>
+      </Row>
       <div
         className={dragging ? 'drop-container dragging' : 'drop-container'}
         onDragEnter={handleDragEnter}
@@ -136,7 +181,7 @@ export default function CreatePost() {
               <img
                 src={URL.createObjectURL(image)}
                 alt={`Preview ${index}`}
-                className="image-preview "
+                className="image-preview"
               />
               <span
                 className="close-button position-absolute top-0 end-0"
@@ -154,7 +199,7 @@ export default function CreatePost() {
         </div>
       </div>
       <div className="container details">
-        <input
+        <input className='input'
           type="file"
           ref={inputFileRef}
           onChange={handleFileInputChange}
@@ -163,78 +208,78 @@ export default function CreatePost() {
           accept="image/*"
         />
       </div>
-      <input
+      <input className='input'
         type="text"
         name="email"
         value={propertyInfo.email}
         onChange={handleChange}
         placeholder="Email"
       />
-      <input
+      <input className='input'
         type="text"
         name="name"
         value={propertyInfo.name}
         onChange={handleChange}
         placeholder="Property Name"
       />
-      <input
+      <input className='input'
         type="text"
         name="location"
         value={propertyInfo.location}
         onChange={handleChange}
         placeholder="Location"
       />
-      <input
+      <input className='input'
         type="text"
         name="city"
         value={propertyInfo.city}
         onChange={handleChange}
-        placeholder="city"
+        placeholder="City"
       />
-      <input
+      <input className='input'
         type="text"
         name="state"
         value={propertyInfo.state}
         onChange={handleChange}
-        placeholder="state"
+        placeholder="State"
       />
-      <input
+      <input className='input'
         type="text"
         name="size"
         value={propertyInfo.size}
         onChange={handleChange}
-        placeholder="size"
+        placeholder="Size"
       />
-      <textarea
+      <textarea className='input'
         name="description"
         value={propertyInfo.description}
         onChange={handleChange}
         placeholder="Description"
       />
-      <input
+      <input className='input'
         type="text"
         name="otherFacilities"
         value={propertyInfo.otherFacilities}
         onChange={handleChange}
         placeholder="Other Facilities"
       />
-      <input
+      <input className='input'
         type="text"
         name="contact"
         value={propertyInfo.contact}
         onChange={handleChange}
         placeholder="Contact"
       />
-      <input
+      <input className='input'
         type="text"
         name="rent"
         value={propertyInfo.rent}
         onChange={handleChange}
         placeholder="Rent"
       />
-      <div className="parking-and-bachelors">
-        <label>
-          <input
+      <div className="parking-and-bachelors d-flex ">
+        <label className='d-flex flex-column'>
+          <input className='input'
             type="checkbox"
             name="parkingAvailable"
             checked={propertyInfo.parkingAvailable}
@@ -242,8 +287,8 @@ export default function CreatePost() {
           />
           Parking Available
         </label>
-        <label>
-          <input
+        <label className='d-flex flex-column'>
+          <input className='input'
             type="checkbox"
             name="bachelorsAllowed"
             checked={propertyInfo.bachelorsAllowed}
@@ -256,7 +301,7 @@ export default function CreatePost() {
         <button className="btn btn-success me-3" onClick={handlePostAd}>
           Post Ad
         </button>
-        <button className="btn btn-success" onClick={handleCancel}>
+        <button className="btn btn-danger" onClick={handleCancel}>
           Cancel
         </button>
       </div>
