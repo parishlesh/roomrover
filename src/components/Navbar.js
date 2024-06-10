@@ -83,7 +83,7 @@ function Navbar({ notify }) {
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       type="text"
-                      className="searchInput mb-0"
+                      className="searchInput mb-0 me-2"
                       placeholder="Enter Location"
                     />
                     <button
